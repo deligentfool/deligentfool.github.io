@@ -53,7 +53,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Xu Zhiwei</h5>
-          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+          <a href="mailto:diligencexu@gmail.com" title="diligencexu@gmail.com" class="mail">diligencexu@gmail.com</a>
         </hgroup>
       </div>
     </div>
@@ -82,30 +82,16 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/yscoder" target="_blank" >
+              <a href="https://github.com/deligentfool" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/ysweb" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/custom"  >
+              <a href="/about" target="_blank" >
                 <i class="icon icon-lg icon-link"></i>
-                测试
+                About
               </a>
             </li>
         
@@ -126,7 +112,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -186,14 +172,122 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        BGD即batch gradient descent. 在训练中,每一步迭代都使用训练集的所有内容. 也就是说,利用现有参数对训练集中的每一个输入生成一个估计输出$\hat{y_i}$,然后跟实际输出$y_i$比较,统计所有误差,求平均以后得到平均误差,以此来作为更新参数的依据.
-具体实现:需要:学习速率 $ϵ$, 初始参数 $θ$每步迭代过程: 
+        <h2 id="BGD"><a href="#BGD" class="headerlink" title="BGD"></a>BGD</h2><p>即batch gradient descent. 在训练中,每一步迭代都使用训练集的所有内容. 也就是说,利用现有参数对训练集中的每一个输入生成一个估计输出$\hat{y_i}$,然后跟实际输出$y_i$比较,统计所有误差,求平均以后得到平均误差,以此来作为更新参数的依据.</p>
+<p>具体实现:<br><strong>需要:学习速率 $ϵ$, 初始参数 $θ$</strong><br>每步迭代过程: </p>
+<ul>
+<li><p>提取训练集中的所有内容${x_1,…,x_n}$,以及相关的输出$y_i$ </p>
+</li>
+<li><p>计算梯度和误差并更新参数</p>
+<p>​                            $\hat { g } \leftarrow + \frac { 1 } { n } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                            $\theta \leftarrow \theta - \epsilon \hat { g }$</p>
+</li>
+</ul>
+<p><strong>优点</strong>:<br>由于每一步都利用了训练集中的所有数据,因此当损失函数达到最小值以后,能够保证此时计算出的梯度为0,换句话说,就是能够收敛.因此,使用BGD时不需要逐渐减小学习速率$ϵ_k$</p>
+<p><strong>缺点</strong>:<br>由于每一步都要使用所有数据,因此随着数据集的增大,运行速度会越来越慢.</p>
+<hr>
+<h2 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h2><p>SGD全名 stochastic gradient descent， 即随机梯度下降。不过这里的SGD其实跟MBGD(minibatch gradient descent)是一个意思,即随机抽取一批样本,以此为根据来更新参数.</p>
+<p>具体实现:<br><strong>需要:学习速率 $ϵ$, 初始参数 $θ$</strong><br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为$m$的样本${x_1,…,x_m}$,以及相关的输出$y_{i} $ </p>
+</li>
+<li><p>计算梯度和误差并更新参数: </p>
+<p>​                            $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                            $\theta \leftarrow \theta - \epsilon \hat { g }$</p>
+</li>
+</ul>
+<p><strong>优点</strong>:<br>训练速度快,对于很大的数据集,也能够以较快的速度收敛.</p>
+<p><strong>缺点</strong>:<br>由于是抽取,因此不可避免的,得到的梯度肯定有误差.因此学习速率需要逐渐减小.否则模型无法收敛<br>因为误差,所以每一次迭代的梯度受抽样的影响比较大,也就是说梯度含有比较大的噪声,不能很好的反映真实梯度.</p>
+<p>学习速率该如何调整:<br>那么这样一来,$ϵ$如何衰减就成了问题.如果要保证SGD收敛,应该满足如下两个要求: </p>
+<p>​                                $\sum _ { k = 1 } ^ { \infty } \epsilon _ { k } = \infty$</p>
+<p>​                                $\sum _ { k = 1 } ^ { \infty } \epsilon _ { k } ^ { 2 } &lt; \infty$</p>
+<p>而在实际操作中,一般是进行线性衰减:<br>​                                $\epsilon _ { k } = ( 1 - \alpha ) \epsilon _ { 0 } + \alpha \epsilon _ { \tau }$</p>
+<p>​                                $\alpha = \frac { k } { \tau }$</p>
+<p>其中$ϵ_0$是初始学习率, $ϵ_τ$是最后一次迭代的学习率. $τ$自然代表迭代次数.一般来说,$ϵ_τ$ 设为$ϵ_0$的1%比较合适.而$τ$一般设为让训练集中的每个数据都输入模型上百次比较合适.那么初始学习率$ϵ_0 $怎么设置呢?先用固定的学习速率迭代100次,找出效果最好的学习速率,然后$ϵ_0$设为比它大一点就可以了.</p>
+<hr>
+<h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p>上面的SGD有个问题,就是每次迭代计算的梯度含有比较大的噪音. 而Momentum方法可以比较好的缓解这个问题,尤其是在面对小而连续的梯度但是含有很多噪声的时候,可以很好的加速学习.Momentum借用了物理中的动量概念,即前几次的梯度也会参与运算.为了表示动量,引入了一个新的变量$v$(velocity).$v$是之前的梯度的累加,但是每回合都有一定的衰减.</p>
+<p>具体实现:<br>*<em>需要:学习速率 $ϵ$, 初始参数 $θ$, 初始速率$v$, 动量衰减参数$α$ *</em><br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为$m$的样本${x_1,…,x_m }$,以及相关的输出$y_i $ </p>
+</li>
+<li><p>计算梯度和误差,并更新速度$v$和参数$θ$: </p>
+<p>​                        $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                        $v \leftarrow \alpha v - \epsilon \hat { g }$</p>
+<p>​                        $\theta \leftarrow \theta + v$</p>
+</li>
+</ul>
+<p>其中参数$α$表示每回合速率$v$的衰减程度.同时也可以推断得到,如果每次迭代得到的梯度都是$g$,那么最后得到的$v$的稳定值为</p>
+<p>​                                $\frac { \epsilon | g | } { 1 - \alpha } $</p>
+<p>也就是说,Momentum最好情况下能够将学习速率加速$\frac{1}{1- \alpha}$倍.一般$α$的取值有0.5,0.9,0.99这几种.当然,也可以让$α$的值随着时间而变化,一开始小点,后来再加大.不过这样一来,又会引进新的参数.<br><strong>特点:</strong><br>前后梯度方向一致时,能够加速学习<br>前后梯度方向不一致时,能够抑制震荡</p>
+<hr>
+<h2 id="Nesterov-Momentum"><a href="#Nesterov-Momentum" class="headerlink" title="Nesterov Momentum"></a>Nesterov Momentum</h2><p>这是对之前的Momentum的一种改进,大概思路就是,先对参数进行估计,然后使用估计后的参数来计算误差</p>
+<p>具体实现:<br><strong>需要:学习速率 $ϵ$, 初始参数 $θ$, 初始速率$v$, 动量衰减参数$α$</strong><br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为m的样本${x_1,…,x_m}$,以及相关的输出$y_i $ </p>
+</li>
+<li><p>计算梯度和误差,并更新速度$v$和参数$θ$: </p>
+</li>
+</ul>
+<p>​                            $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta + \alpha v \right) , y _ { i } \right)$</p>
+<p>​                            $v \leftarrow \alpha v - \epsilon \hat { g }$</p>
+<p>​                            $\theta \leftarrow \theta + v$</p>
+<p>注意在估算$\hat{g}$的时候,参数变成了$θ+αv$而不是之前的$θ$</p>
+<hr>
+<h2 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h2><p>AdaGrad可以自动变更学习速率,只是需要设定一个全局的学习速率$ϵ$,但是这并非是实际学习速率,实际的速率是与以往参数的模之和的开方成反比的.也许说起来有点绕口,不过用公式来表示就直白的多: </p>
+<p>其中$δ$是一个很小的常量,大概在$10^{−7} $,防止出现除以0的情况.<br>具体实现:<br><strong>需要:全局学习速率 $ϵ$, 初始参数$ θ$, 数值稳定量$δ$</strong><br>中间变量: 梯度累计量$r$(初始化为0)<br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为m的样本${x_1,…,x_m}$,以及相关的输出$y_i$</p>
+</li>
+<li><p>计算梯度和误差,更新$r$,再根据r和梯度计算参数更新量</p>
+<p>​                        $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                        $r \leftarrow r + \hat { g } \odot \hat { g }$</p>
+<p>​                        $\triangle \theta = - \frac { \epsilon } { \delta + \sqrt { r } } \odot \hat { g } $</p>
+<p>​                        $\theta \leftarrow \theta + \triangle \theta$ </p>
+</li>
+</ul>
+<p><strong>优点:</strong><br>能够实现学习率的自动更改。如果这次梯度大,那么学习速率衰减的就快一些;如果这次梯度小,那么学习速率衰减的就满一些。</p>
+<p><strong>缺点:</strong><br>仍然要设置一个变量$ϵ$ 和一个常量$\delta $<br>经验表明，在普通算法中也许效果不错，但在深度学习中，深度过深时会造成训练提前结束。</p>
+<hr>
+<h2 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h2><p>RMSProp通过引入一个衰减系数，让r每回合都衰减一定比例，类似于Momentum中的做法。</p>
+<p>具体实现:<br><strong>需要:全局学习速率 $ϵ$, 初始参数 $θ$, 数值稳定量$δ$，衰减速率$ρ$</strong><br>中间变量: 梯度累计量$r$(初始化为0)<br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为$m$的样本${x1,…,xm}$,以及相关的输出$y_i$ </p>
+</li>
+<li><p>计算梯度和误差,更新r,再根据r和梯度计算参数更新量 </p>
+<p>​                    $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                    $ { r } \leftarrow \rho r + ( 1 - \rho ) \hat { g } \odot \hat { g }$</p>
+<p>​                    $\triangle \theta = - \frac { \epsilon } { \delta + \sqrt { r } } \odot \hat { g } $</p>
+<p>​                    $\theta \leftarrow \theta + \triangle \theta$</p>
+</li>
+</ul>
+<p><strong>优点：</strong><br>相比于AdaGrad,这种方法很好的解决了深度学习中过早结束的问题<br>适合处理非平稳目标，对于RNN效果很好</p>
+<p><strong>缺点：</strong><br>又引入了新的超参，衰减系数$ρ$<br>依然依赖于全局学习速率</p>
+<hr>
+<h2 id="RMSProp-with-Nesterov-Momentum"><a href="#RMSProp-with-Nesterov-Momentum" class="headerlink" title="RMSProp with Nesterov Momentum"></a>RMSProp with Nesterov Momentum</h2><p>该优化算法是将RMSProp和Nesterov Momentum结合起来得到的</p>
+<p>具体实现:<br><strong>需要:全局学习速率 $ϵ$, 初始参数 $θ$, 初始速率$v$，动量衰减系数$α$, 梯度累计量衰减速率$ρ$</strong><br>中间变量: 梯度累计量$r$(初始化为0)<br>每步迭代过程: </p>
+<p>从训练集中的随机抽取一批容量为$m$的样本${x_1,…, x_m }$,以及相关的输出$y_ i $ </p>
+<p>计算梯度和误差,更新$r$,再根据$r$和梯度计算参数更新量</p>
+<p>​                        $\overline { \theta } \leftarrow \theta + \alpha v$</p>
+<p>​                        $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \tilde { \theta } } \sum _ { i } L \left( f \left( x _ { i } ; \overline { \theta } \right) , y _ { i } \right) $</p>
+<p>​                        $r \leftarrow \rho r + ( 1 - \rho ) \hat { g } \odot \hat { g }$</p>
+<p>​                        $v \leftarrow \alpha v - \frac { \epsilon } { \sqrt { r } } \odot \hat { g }$</p>
+<p>​                        $\theta \leftarrow \theta + v$</p>
+<hr>
+<h2 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h2><p>Adam(Adaptive Moment Estimation)本质上是带有动量项的RMSprop，它利用梯度的一阶矩估计和二阶矩估计动态调整每个参数的学习率。Adam的优点主要在于经过偏置校正后，每一次迭代学习率都有个确定范围，使得参数比较平稳。</p>
+<p>具体实现:<br><strong>需要:步进值 $ϵ$, 初始参数 $θ$, 数值稳定量$δ$，一阶动量衰减系数$ρ<em>1$, 二阶动量衰减系数$ρ</em>{2} $</strong><br>其中几个取值一般为：$δ=10^{−8}$,$ρ_1=0.9$,$ρ_2=0.999$,$δ=10^{−8}$,$ρ_1=0.9$,$ρ_2 =0.999$<br>中间变量：一阶动量s，二阶动量r,都初始化为0<br>每步迭代过程: </p>
+<p>从训练集中的随机抽取一批容量为$m$的样本${x_1,…,x_{m} }$,以及相关的输出$y_{i}$ </p>
+<p>计算梯度和误差,更新$r$和$s$,再根据$r$和$s$以及梯度计算参数更新量</p>
+<p>​                            $g \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                            $s \leftarrow \rho _ { 1 } s + \left( 1 - \rho _ { 1 } \right) g$</p>
+<p>​                            $r \leftarrow \rho _ { 2 } r + \left( 1 - \rho _ { 2 } \right) g \odot g$</p>
+<p>​                            $\hat { s } \leftarrow \frac { s } { 1 - \rho _ { 1 } }$</p>
+<p>​                            $\hat { r } \leftarrow \frac { r } { 1 - \rho _ { 2 } }$</p>
+<p>​                            $\triangle \theta = - \epsilon \frac { \hat { s } } { \sqrt { \hat { r } } + \delta }$</p>
+<p>​                            $\theta \leftarrow \theta + \triangle\theta$</p>
 
-提取训练集中的所有内容${x_1,…,x...
     
 
         <a href="/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" class="post-more waves-effect waves-button">
-            Continue reading...
+            続きを読む…
         </a>
     </div>
     
@@ -234,12 +328,24 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
     
 
         <a href="/2020/01/12/hello-world/" class="post-more waves-effect waves-button">
-            Continue reading...
+            続きを読む…
         </a>
     </div>
     
@@ -268,11 +374,11 @@ Qu...
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>Xu Zhiwei &copy; 2015 - 2020</span>
+        <p><span>Xu Zhiwei &copy; 2019 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
