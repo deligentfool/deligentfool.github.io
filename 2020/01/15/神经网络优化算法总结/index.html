@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>神经网络优化算法总结 | 徐韭菜</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="深度学习,优化">
+    <meta name="description" content="1. BGD即batch gradient descent. 在训练中,每一步迭代都使用训练集的所有内容. 也就是说,利用现有参数对训练集中的每一个输入生成一个估计输出$\hat{y_i}$,然后跟实际输出$y_i$比较,统计所有误差,求平均以后得到平均误差,以此来作为更新参数的依据. 具体实现:需要:学习速率 $ϵ$, 初始参数 $θ$每步迭代过程:   提取训练集中的所有内容${x_1,…,x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经网络优化算法总结">
+<meta property="og:url" content="http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="徐韭菜">
+<meta property="og:description" content="1. BGD即batch gradient descent. 在训练中,每一步迭代都使用训练集的所有内容. 也就是说,利用现有参数对训练集中的每一个输入生成一个估计输出$\hat{y_i}$,然后跟实际输出$y_i$比较,统计所有误差,求平均以后得到平均误差,以此来作为更新参数的依据. 具体实现:需要:学习速率 $ϵ$, 初始参数 $θ$每步迭代过程:   提取训练集中的所有内容${x_1,…,x">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-01-15T08:25:37.000Z">
+<meta property="article:modified_time" content="2020-01-15T08:27:52.992Z">
+<meta property="article:author" content="Xu Zhiwei">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="优化">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xu Zhiwei</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">神经网络优化算法总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">神经网络优化算法总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-15T08:25:37.000Z" itemprop="datePublished" class="page-time">
+  2020-01-15
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-BGD"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. BGD</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-SGD"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. SGD</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Momentum"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. Momentum</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Nesterov-Momentum"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. Nesterov Momentum</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-AdaGrad"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. AdaGrad</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-RMSProp"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. RMSProp</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-RMSProp-with-Nesterov-Momentum"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. RMSProp with Nesterov Momentum</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-Adam"><span class="post-toc-number">8.</span> <span class="post-toc-text">8. Adam</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-神经网络优化算法总结"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">神经网络优化算法总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-15 16:25:37" datetime="2020-01-15T08:25:37.000Z"  itemprop="datePublished">2020-01-15</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="1-BGD"><a href="#1-BGD" class="headerlink" title="1. BGD"></a>1. BGD</h2><p>即batch gradient descent. 在训练中,每一步迭代都使用训练集的所有内容. 也就是说,利用现有参数对训练集中的每一个输入生成一个估计输出$\hat{y_i}$,然后跟实际输出$y_i$比较,统计所有误差,求平均以后得到平均误差,以此来作为更新参数的依据.</p>
+<p>具体实现:<br><strong>需要:学习速率 $ϵ$, 初始参数 $θ$</strong><br>每步迭代过程: </p>
+<ul>
+<li><p>提取训练集中的所有内容${x_1,…,x_n}$,以及相关的输出$y_i$ </p>
+</li>
+<li><p>计算梯度和误差并更新参数</p>
+<p>​                            $\hat { g } \leftarrow + \frac { 1 } { n } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                            $\theta \leftarrow \theta - \epsilon \hat { g }$</p>
+</li>
+</ul>
+<p><strong>优点</strong>:<br>由于每一步都利用了训练集中的所有数据,因此当损失函数达到最小值以后,能够保证此时计算出的梯度为0,换句话说,就是能够收敛.因此,使用BGD时不需要逐渐减小学习速率$ϵ_k$</p>
+<p><strong>缺点</strong>:<br>由于每一步都要使用所有数据,因此随着数据集的增大,运行速度会越来越慢.</p>
+<hr>
+<h2 id="2-SGD"><a href="#2-SGD" class="headerlink" title="2. SGD"></a>2. SGD</h2><p>SGD全名 stochastic gradient descent， 即随机梯度下降。不过这里的SGD其实跟MBGD(minibatch gradient descent)是一个意思,即随机抽取一批样本,以此为根据来更新参数.</p>
+<p>具体实现:<br><strong>需要:学习速率 $ϵ$, 初始参数 $θ$</strong><br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为$m$的样本${x_1,…,x_m}$,以及相关的输出$y_{i} $ </p>
+</li>
+<li><p>计算梯度和误差并更新参数: </p>
+<p>​                            $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                            $\theta \leftarrow \theta - \epsilon \hat { g }$</p>
+</li>
+</ul>
+<p><strong>优点</strong>:<br>训练速度快,对于很大的数据集,也能够以较快的速度收敛.</p>
+<p><strong>缺点</strong>:<br>由于是抽取,因此不可避免的,得到的梯度肯定有误差.因此学习速率需要逐渐减小.否则模型无法收敛<br>因为误差,所以每一次迭代的梯度受抽样的影响比较大,也就是说梯度含有比较大的噪声,不能很好的反映真实梯度.</p>
+<p>学习速率该如何调整:<br>那么这样一来,$ϵ$如何衰减就成了问题.如果要保证SGD收敛,应该满足如下两个要求: </p>
+<p>​                                $\sum _ { k = 1 } ^ { \infty } \epsilon _ { k } = \infty$</p>
+<p>​                                $\sum _ { k = 1 } ^ { \infty } \epsilon _ { k } ^ { 2 } &lt; \infty$</p>
+<p>而在实际操作中,一般是进行线性衰减:<br>​                                $\epsilon _ { k } = ( 1 - \alpha ) \epsilon _ { 0 } + \alpha \epsilon _ { \tau }$</p>
+<p>​                                $\alpha = \frac { k } { \tau }$</p>
+<p>其中$ϵ_0$是初始学习率, $ϵ_τ$是最后一次迭代的学习率. $τ$自然代表迭代次数.一般来说,$ϵ_τ$ 设为$ϵ_0$的1%比较合适.而$τ$一般设为让训练集中的每个数据都输入模型上百次比较合适.那么初始学习率$ϵ_0 $怎么设置呢?先用固定的学习速率迭代100次,找出效果最好的学习速率,然后$ϵ_0$设为比它大一点就可以了.</p>
+<hr>
+<h2 id="3-Momentum"><a href="#3-Momentum" class="headerlink" title="3. Momentum"></a>3. Momentum</h2><p>上面的SGD有个问题,就是每次迭代计算的梯度含有比较大的噪音. 而Momentum方法可以比较好的缓解这个问题,尤其是在面对小而连续的梯度但是含有很多噪声的时候,可以很好的加速学习.Momentum借用了物理中的动量概念,即前几次的梯度也会参与运算.为了表示动量,引入了一个新的变量$v$(velocity).$v$是之前的梯度的累加,但是每回合都有一定的衰减.</p>
+<p>具体实现:<br>*<em>需要:学习速率 $ϵ$, 初始参数 $θ$, 初始速率$v$, 动量衰减参数$α$ *</em><br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为$m$的样本${x_1,…,x_m }$,以及相关的输出$y_i $ </p>
+</li>
+<li><p>计算梯度和误差,并更新速度$v$和参数$θ$: </p>
+<p>​                        $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                        $v \leftarrow \alpha v - \epsilon \hat { g }$</p>
+<p>​                        $\theta \leftarrow \theta + v$</p>
+</li>
+</ul>
+<p>其中参数$α$表示每回合速率$v$的衰减程度.同时也可以推断得到,如果每次迭代得到的梯度都是$g$,那么最后得到的$v$的稳定值为</p>
+<p>​                                $\frac { \epsilon | g | } { 1 - \alpha } $</p>
+<p>也就是说,Momentum最好情况下能够将学习速率加速$\frac{1}{1- \alpha}$倍.一般$α$的取值有0.5,0.9,0.99这几种.当然,也可以让$α$的值随着时间而变化,一开始小点,后来再加大.不过这样一来,又会引进新的参数.<br><strong>特点:</strong><br>前后梯度方向一致时,能够加速学习<br>前后梯度方向不一致时,能够抑制震荡</p>
+<hr>
+<h2 id="4-Nesterov-Momentum"><a href="#4-Nesterov-Momentum" class="headerlink" title="4. Nesterov Momentum"></a>4. Nesterov Momentum</h2><p>这是对之前的Momentum的一种改进,大概思路就是,先对参数进行估计,然后使用估计后的参数来计算误差</p>
+<p>具体实现:<br><strong>需要:学习速率 $ϵ$, 初始参数 $θ$, 初始速率$v$, 动量衰减参数$α$</strong><br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为m的样本${x_1,…,x_m}$,以及相关的输出$y_i $ </p>
+</li>
+<li><p>计算梯度和误差,并更新速度$v$和参数$θ$: </p>
+</li>
+</ul>
+<p>​                            $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta + \alpha v \right) , y _ { i } \right)$</p>
+<p>​                            $v \leftarrow \alpha v - \epsilon \hat { g }$</p>
+<p>​                            $\theta \leftarrow \theta + v$</p>
+<p>注意在估算$\hat{g}$的时候,参数变成了$θ+αv$而不是之前的$θ$</p>
+<hr>
+<h2 id="5-AdaGrad"><a href="#5-AdaGrad" class="headerlink" title="5. AdaGrad"></a>5. AdaGrad</h2><p>AdaGrad可以自动变更学习速率,只是需要设定一个全局的学习速率$ϵ$,但是这并非是实际学习速率,实际的速率是与以往参数的模之和的开方成反比的.也许说起来有点绕口,不过用公式来表示就直白的多: </p>
+<p>其中$δ$是一个很小的常量,大概在$10^{−7} $,防止出现除以0的情况.<br>具体实现:<br><strong>需要:全局学习速率 $ϵ$, 初始参数$ θ$, 数值稳定量$δ$</strong><br>中间变量: 梯度累计量$r$(初始化为0)<br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为m的样本${x_1,…,x_m}$,以及相关的输出$y_i$</p>
+</li>
+<li><p>计算梯度和误差,更新$r$,再根据r和梯度计算参数更新量</p>
+<p>​                        $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                        $r \leftarrow r + \hat { g } \odot \hat { g }$</p>
+<p>​                        $\triangle \theta = - \frac { \epsilon } { \delta + \sqrt { r } } \odot \hat { g } $</p>
+<p>​                        $\theta \leftarrow \theta + \triangle \theta$ </p>
+</li>
+</ul>
+<p><strong>优点:</strong><br>能够实现学习率的自动更改。如果这次梯度大,那么学习速率衰减的就快一些;如果这次梯度小,那么学习速率衰减的就满一些。</p>
+<p><strong>缺点:</strong><br>仍然要设置一个变量$ϵ$ 和一个常量$\delta $<br>经验表明，在普通算法中也许效果不错，但在深度学习中，深度过深时会造成训练提前结束。</p>
+<hr>
+<h2 id="6-RMSProp"><a href="#6-RMSProp" class="headerlink" title="6. RMSProp"></a>6. RMSProp</h2><p>RMSProp通过引入一个衰减系数，让r每回合都衰减一定比例，类似于Momentum中的做法。</p>
+<p>具体实现:<br><strong>需要:全局学习速率 $ϵ$, 初始参数 $θ$, 数值稳定量$δ$，衰减速率$ρ$</strong><br>中间变量: 梯度累计量$r$(初始化为0)<br>每步迭代过程: </p>
+<ul>
+<li><p>从训练集中的随机抽取一批容量为$m$的样本${x1,…,xm}$,以及相关的输出$y_i$ </p>
+</li>
+<li><p>计算梯度和误差,更新r,再根据r和梯度计算参数更新量 </p>
+<p>​                    $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                    $ { r } \leftarrow \rho r + ( 1 - \rho ) \hat { g } \odot \hat { g }$</p>
+<p>​                    $\triangle \theta = - \frac { \epsilon } { \delta + \sqrt { r } } \odot \hat { g } $</p>
+<p>​                    $\theta \leftarrow \theta + \triangle \theta$</p>
+</li>
+</ul>
+<p><strong>优点：</strong><br>相比于AdaGrad,这种方法很好的解决了深度学习中过早结束的问题<br>适合处理非平稳目标，对于RNN效果很好</p>
+<p><strong>缺点：</strong><br>又引入了新的超参，衰减系数$ρ$<br>依然依赖于全局学习速率</p>
+<hr>
+<h2 id="7-RMSProp-with-Nesterov-Momentum"><a href="#7-RMSProp-with-Nesterov-Momentum" class="headerlink" title="7. RMSProp with Nesterov Momentum"></a>7. RMSProp with Nesterov Momentum</h2><p>该优化算法是将RMSProp和Nesterov Momentum结合起来得到的</p>
+<p>具体实现:<br><strong>需要:全局学习速率 $ϵ$, 初始参数 $θ$, 初始速率$v$，动量衰减系数$α$, 梯度累计量衰减速率$ρ$</strong><br>中间变量: 梯度累计量$r$(初始化为0)<br>每步迭代过程: </p>
+<p>从训练集中的随机抽取一批容量为$m$的样本${x_1,…, x_m }$,以及相关的输出$y_ i $ </p>
+<p>计算梯度和误差,更新$r$,再根据$r$和梯度计算参数更新量</p>
+<p>​                        $\overline { \theta } \leftarrow \theta + \alpha v$</p>
+<p>​                        $\hat { g } \leftarrow + \frac { 1 } { m } \nabla _ { \tilde { \theta } } \sum _ { i } L \left( f \left( x _ { i } ; \overline { \theta } \right) , y _ { i } \right) $</p>
+<p>​                        $r \leftarrow \rho r + ( 1 - \rho ) \hat { g } \odot \hat { g }$</p>
+<p>​                        $v \leftarrow \alpha v - \frac { \epsilon } { \sqrt { r } } \odot \hat { g }$</p>
+<p>​                        $\theta \leftarrow \theta + v$</p>
+<hr>
+<h2 id="8-Adam"><a href="#8-Adam" class="headerlink" title="8. Adam"></a>8. Adam</h2><p>Adam(Adaptive Moment Estimation)本质上是带有动量项的RMSprop，它利用梯度的一阶矩估计和二阶矩估计动态调整每个参数的学习率。Adam的优点主要在于经过偏置校正后，每一次迭代学习率都有个确定范围，使得参数比较平稳。</p>
+<p>具体实现:<br><strong>需要:步进值 $ϵ$, 初始参数 $θ$, 数值稳定量$δ$，一阶动量衰减系数$ρ<em>1$, 二阶动量衰减系数$ρ</em>{2} $</strong><br>其中几个取值一般为：$δ=10^{−8}$,$ρ_1=0.9$,$ρ_2=0.999$,$δ=10^{−8}$,$ρ_1=0.9$,$ρ_2 =0.999$<br>中间变量：一阶动量s，二阶动量r,都初始化为0<br>每步迭代过程: </p>
+<p>从训练集中的随机抽取一批容量为$m$的样本${x_1,…,x_{m} }$,以及相关的输出$y_{i}$ </p>
+<p>计算梯度和误差,更新$r$和$s$,再根据$r$和$s$以及梯度计算参数更新量</p>
+<p>​                            $g \leftarrow + \frac { 1 } { m } \nabla _ { \theta } \sum _ { i } L \left( f \left( x _ { i } ; \theta \right) , y _ { i } \right)$</p>
+<p>​                            $s \leftarrow \rho _ { 1 } s + \left( 1 - \rho _ { 1 } \right) g$</p>
+<p>​                            $r \leftarrow \rho _ { 2 } r + \left( 1 - \rho _ { 2 } \right) g \odot g$</p>
+<p>​                            $\hat { s } \leftarrow \frac { s } { 1 - \rho _ { 1 } }$</p>
+<p>​                            $\hat { r } \leftarrow \frac { r } { 1 - \rho _ { 2 } }$</p>
+<p>​                            $\triangle \theta = - \epsilon \frac { \hat { s } } { \sqrt { \hat { r } } + \delta }$</p>
+<p>​                            $\theta \leftarrow \theta + \triangle\theta$</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-01-15T08:27:52.992Z" itemprop="dateUpdated">2020-01-15 16:27:52</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" target="_blank" rel="external">http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Xu Zhiwei">
+            Xu Zhiwei
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/&title=《神经网络优化算法总结》 — 徐韭菜&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/&title=《神经网络优化算法总结》 — 徐韭菜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《神经网络优化算法总结》 — 徐韭菜&url=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/12/hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Xu Zhiwei &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/&title=《神经网络优化算法总结》 — 徐韭菜&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/&title=《神经网络优化算法总结》 — 徐韭菜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《神经网络优化算法总结》 — 徐韭菜&url=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2020/01/15/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
