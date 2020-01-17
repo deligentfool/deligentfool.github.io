@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/01/16/LPNbpq7Yux8gCsR.png">
 <meta property="og:image" content="https://i.loli.net/2020/01/16/mNcfAqd9gFSWRV1.png">
 <meta property="article:published_time" content="2020-01-16T08:55:02.000Z">
-<meta property="article:modified_time" content="2020-01-17T08:37:12.101Z">
+<meta property="article:modified_time" content="2020-01-17T08:49:05.637Z">
 <meta property="article:author" content="Xu Zhiwei">
 <meta property="article:tag" content="强化学习">
 <meta property="article:tag" content="多智能体">
@@ -130,7 +130,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -210,7 +210,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>对于特定的team，假设agent的policy$\ \pi_{0}$应该最大化其team${\pi_{0}, \pi_{1}, \dots, \pi_{\frac{N}{2}-1}}$获胜的概率。其中图中的类似大于号的操作符表示如果左边的team获胜则返回1，反之返回0，如果平局则随机返回0或者1。$\omega \sim \Omega$表示特定的地图实例和随机种子，它们在学习和测试中是随机的。</p>
+<p>对于特定的team，假设agent的policy$\ \pi_{0}$应该最大化其team$\ { \pi_{0}, \pi_{1}, \dots, \pi_{\frac{N}{2}-1} }$获胜的概率。其中图中的类似大于号的操作符表示如果左边的team获胜则返回1，反之返回0，如果平局则随机返回0或者1。$\omega \sim \Omega$表示特定的地图实例和随机种子，它们在学习和测试中是随机的。</p>
 <p>$ρ_t$表示游戏点数：玩家在各种游戏事件（诸如捕获旗帜之类的事件 ）中收到的点数，这些点数在游戏内记分牌中可见。</p>
 <p>通过基于可用的游戏点数$ρ_t$指定$r_t = \mathbf{w}(ρ_t)$来使得每个agent具有密集内部奖励函数的方法，并且允许agent学习优化参数$\mathbf{w}$，以优化$r_t$来优化For The Win的policy。</p>
 <p>整个task的目标函数为：</p>
@@ -226,10 +226,10 @@
 <p>内部优化最大化$J_{\text { inner }}$，即agent的预期未来折扣内部奖励。$J_{\text{outer}}$的外部优化可以被视为meta-game，其中赢得匹配的meta-reward相对于内部奖励方案$w_p$和超参数$\phi_p$最大化，内部优化提供meta transition dynamics。</p>
 <p>使用RL解决内部优化问题，并使用population based training（PBT）进行外部优化。</p>
 <p><img src="https://i.loli.net/2020/01/16/6JXBZKM1HpG8wS5.png" alt="算法框架"></p>
-<p>该模型在两个不同的时间尺度上运行，底部为较快的时间模型，顶部为相较慢$\tau$因子的时间模型。基于观测值$\mathbf{x}<em>t$，在分布为$\mathbb{Q}</em>{t}$的快速时间尺度对随机vector-valued latent variable进行采样。在每个时间步$t$，以潜在变量为条件对动作分布$\pi_t$进行采样。latent variable通过缓慢移动的prior $\mathbb{P}_{t}$进行正则化，这有助于捕获长程时间相关性并促进记忆。文章使用基于agent自己的内部奖励机制$r_t $的强化学习来更新网络参数，该内部奖励函数$r_t$是从游戏点数$ρ_t $的学习$\mathbf{w}$获得的。</p>
+<p>该模型在两个不同的时间尺度上运行，底部为较快的时间模型，顶部为相较慢$\tau$因子的时间模型。基于观测值$\mathbf{x}<em>t$，在分布为$\mathbf{Q}</em>{t}$的快速时间尺度对随机vector-valued latent variable进行采样。在每个时间步$t$，以潜在变量为条件对动作分布$\pi_t$进行采样。latent variable通过缓慢移动的prior $\mathbf{P}_{t}$进行正则化，这有助于捕获长程时间相关性并促进记忆。文章使用基于agent自己的内部奖励机制$r_t $的强化学习来更新网络参数，该内部奖励函数$r_t$是从游戏点数$ρ_t $的学习$\mathbf{w}$获得的。</p>
 <p>$\mathbf{w}$通过基于PBT来优化获胜概率，即在比RL更慢的时间尺度上执行的另一级训练。</p>
-<h2 id="FTW-Agent-Architecture"><a href="#FTW-Agent-Architecture" class="headerlink" title="FTW Agent Architecture"></a>FTW Agent Architecture</h2><p>Fully observed Markov Decision Process的目标为最大化$\mathbb{E}<em>{\pi\left(\cdot | \mathbf{s}</em>{t}\right)}\left[R_{t}\right]$，而Partially-Observed Markov De-<br>cision Process的目标就变成为最大化$\mathbb{E}<em>{\pi\left(\cdot | \mathbf{x}</em>{ \leq t}\right)}\left[R_{t}\right]$——基于agent观察历史的policy预期回报。，其中$\mathbf{x}$表示agent对于环境的观测值。由于给定观测值的真实状态的模糊性，即用公式表示为$\mathbb{P}\left(\mathbf{s}<em>{t} | \mathbf{x}</em>{ \leq t}\right)$，将当前值表示为随机变量$V_{t}=\mathbb{E}<em>{\pi\left(\cdot | \mathbf{x}</em>{ \leq t}\right)}\left[R_{t}\right]=\sum_{\mathbf{s}} \mathbb{P}\left(\mathbf{s} | \mathbf{x}<em>{&lt;t}\right) \mathbb{E}</em>{\pi(\cdot | \mathbf{s})}\left[R_{t}\right]$。</p>
-<p>利用Kullback-Leibler散度（KL散度）正则化目标函数，其中策略$\mathbb{Q}$针对先前策略$\mathbb{P}$进行了规则化。将策略$\mathbb{Q}$和策略$\mathbb{P}$两者都包含latent variable $\mathbf{z}_t$，其目的是模拟对过去观察的依赖性。</p>
+<h2 id="FTW-Agent-Architecture"><a href="#FTW-Agent-Architecture" class="headerlink" title="FTW Agent Architecture"></a>FTW Agent Architecture</h2><p>Fully observed Markov Decision Process的目标为最大化$\mathbf{E}<em>{\pi\left(\cdot | \mathbf{s}</em>{t}\right)}\left[R_{t}\right]$，而Partially-Observed Markov De-<br>cision Process的目标就变成为最大化$\mathbf{E}<em>{\pi\left(\cdot | \mathbf{x}</em>{ \leq t}\right)}\left[R_{t}\right]$——基于agent观察历史的policy预期回报。，其中$\mathbf{x}$表示agent对于环境的观测值。由于给定观测值的真实状态的模糊性，即用公式表示为$\mathbf{P}\left(\mathbf{s}<em>{t} | \mathbf{x}</em>{ \leq t}\right)$，将当前值表示为随机变量$V_{t}=\mathbf{E}<em>{\pi\left(\cdot | \mathbf{x}</em>{ \leq t}\right)}\left[R_{t}\right]=\sum_{\mathbf{s}} \mathbf{P}\left(\mathbf{s} | \mathbf{x}<em>{&lt;t}\right) \mathbf{E}</em>{\pi(\cdot | \mathbf{s})}\left[R_{t}\right]$。</p>
+<p>利用Kullback-Leibler散度（KL散度）正则化目标函数，其中策略$\mathbf{Q}$针对先前策略$\mathbf{P}$进行了规则化。将策略$\mathbf{Q}$和策略$\mathbf{P}$两者都包含latent variable $\mathbf{z}_t$，其目的是模拟对过去观察的依赖性。</p>
 <p>目标函数定义为：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -239,7 +239,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>其中$\mathbb{P}\left(\mathbf{z}<em>{t} | \mathbf{C}</em>{t}^{p}\right)$和$\mathbb{Q}\left(\mathbf{z}<em>{t} | \mathbf{C}</em>{t}^{q}\right)$是$\mathbf{z}<em>t $上的先验和变分后验分布，分别以不同变量集$\mathrm{C}</em>{t}^{p}$和$\mathrm{C}<em>{t}^{q}$为条件，$D</em>{\mathrm{KL}}$是Kullback-Leibler散度。变量$\mathrm{C}<em>{t}^{p}$和$\mathrm{C}</em>{t}^{q}$的集合确定了agent的概率模型的结构，并且可以用于为模型具备有代表性的先验。</p>
+<p>其中$\mathbf{P}\left(\mathbf{z}<em>{t} | \mathbf{C}</em>{t}^{p}\right)$和$\mathbf{Q}\left(\mathbf{z}<em>{t} | \mathbf{C}</em>{t}^{q}\right)$是$\mathbf{z}<em>t $上的先验和变分后验分布，分别以不同变量集$\mathrm{C}</em>{t}^{p}$和$\mathrm{C}<em>{t}^{q}$为条件，$D</em>{\mathrm{KL}}$是Kullback-Leibler散度。变量$\mathrm{C}<em>{t}^{p}$和$\mathrm{C}</em>{t}^{q}$的集合确定了agent的概率模型的结构，并且可以用于为模型具备有代表性的先验。</p>
 <p>使用两个不同时间尺度上运行的循环神经网络（LSTM）组成的 hierarchy RNN。<br>hierarchy RNN的快速层core在每个步骤$t$产生隐藏状态$\mathbf{h}_{t}^{q}$，而其慢速层core每$τ$步产生更新的隐藏状态<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -247,7 +247,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>。</p>
-<p>使用快速层LSTM的输出作为变分后验，即$\mathbb{Q}\left(\mathbf{z}<em>{t} | \mathbb{P}\left(\mathbf{z}</em>{t}\right), \mathbf{z}<em>{&lt;t}, \mathbf{x}</em>{ \leq t}, a_{&lt;t}, r_{&lt;t}\right)=\mathcal{N}\left(\mu_{t}^{q}, \Sigma_{t}^{q}\right)$，其中正态分布的均值$\mu_{t}^{q}$和方差$\Sigma_{t}^{q}=\left(\sigma_{t}^{q} \mathbf{I}\right)^{2}$都是通过线性变换$\left(\mu_{t}^{q}, \log \sigma_{t}^{q}\right)=f_{q}\left(\mathbf{h}<em>{t}^{q}\right)$得到的，并且在每一个时间步$t$上采样得到$\mathbf{z}</em>{t} \sim \mathcal{N}\left(\mu_{t}^{q}, \Sigma_{t}^{q}\right)$。同理，在慢速层LSTM中<figure class="image-bubble">
+<p>使用快速层LSTM的输出作为变分后验，即$\mathbf{Q}\left(\mathbf{z}<em>{t} | \mathbf{P}\left(\mathbf{z}</em>{t}\right), \mathbf{z}<em>{&lt;t}, \mathbf{x}</em>{ \leq t}, a_{&lt;t}, r_{&lt;t}\right)=\mathcal{N}\left(\mu_{t}^{q}, \Sigma_{t}^{q}\right)$，其中正态分布的均值$\mu_{t}^{q}$和方差$\Sigma_{t}^{q}=\left(\sigma_{t}^{q} \mathbf{I}\right)^{2}$都是通过线性变换$\left(\mu_{t}^{q}, \log \sigma_{t}^{q}\right)=f_{q}\left(\mathbf{h}<em>{t}^{q}\right)$得到的，并且在每一个时间步$t$上采样得到$\mathbf{z}</em>{t} \sim \mathcal{N}\left(\mu_{t}^{q}, \Sigma_{t}^{q}\right)$。同理，在慢速层LSTM中<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://i.loli.net/2020/01/16/zO92RLj7XvaH6Vm.png)，其中$\Sigma_{t}^{p}=\left(\sigma_{t}^{p}" alt="mathbf{I}ight)^{2}$并且$left(mu_{t}^{p}," title="">
@@ -491,7 +491,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
