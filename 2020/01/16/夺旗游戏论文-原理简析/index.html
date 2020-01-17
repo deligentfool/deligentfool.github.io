@@ -34,13 +34,13 @@
 <meta property="og:image" content="https://i.loli.net/2020/01/16/6JXBZKM1HpG8wS5.png">
 <meta property="og:image" content="https://i.loli.net/2020/01/16/SzG2YFEwgytosi7.png">
 <meta property="og:image" content="https://i.loli.net/2020/01/16/UeOTvBhjJbXt5Pw.png">
-<meta property="og:image" content="https://i.loli.net/2020/01/16/zO92RLj7XvaH6Vm.png)%EF%BC%8C%E5%85%B6%E4%B8%AD$/Sigma_%7Bt%7D^%7Bp%7D=/left(/sigma_%7Bt%7D^%7Bp%7D">
+<meta property="og:image" content="https://i.loli.net/2020/01/16/zO92RLj7XvaH6Vm.png)%EF%BC%8C%E5%85%B6%E4%B8%AD$/Sigma">
 <meta property="og:image" content="https://i.loli.net/2020/01/16/fmShoCt7dX1c4vA.png">
 <meta property="og:image" content="https://i.loli.net/2020/01/16/mNcfAqd9gFSWRV1.png">
 <meta property="og:image" content="https://i.loli.net/2020/01/16/LPNbpq7Yux8gCsR.png">
 <meta property="og:image" content="https://i.loli.net/2020/01/16/mNcfAqd9gFSWRV1.png">
 <meta property="article:published_time" content="2020-01-16T08:55:02.000Z">
-<meta property="article:modified_time" content="2020-01-17T09:00:30.528Z">
+<meta property="article:modified_time" content="2020-01-17T09:08:48.310Z">
 <meta property="article:author" content="Xu Zhiwei">
 <meta property="article:tag" content="强化学习">
 <meta property="article:tag" content="多智能体">
@@ -228,7 +228,7 @@
 <p><img src="https://i.loli.net/2020/01/16/6JXBZKM1HpG8wS5.png" alt="算法框架"></p>
 <p>该模型在两个不同的时间尺度上运行，底部为较快的时间模型，顶部为相较慢$\tau$因子的时间模型。基于观测值$ \mathbf{ x } _ t$，在分布为$ \mathbb{ Q } _ { t }$的快速时间尺度对随机vector-valued latent variable进行采样。在每个时间步$t$，以潜在变量为条件对动作分布$\pi _ t$进行采样。latent variable通过缓慢移动的prior $ \mathbb{ P } _ { t }$进行正则化，这有助于捕获长程时间相关性并促进记忆。文章使用基于agent自己的内部奖励机制$r _ t $的强化学习来更新网络参数，该内部奖励函数$r _ t$是从游戏点数$ ρ _ t $的学习$\mathbf{ w }$获得的。</p>
 <p>$\mathbf{w}$通过基于PBT来优化获胜概率，即在比RL更慢的时间尺度上执行的另一级训练。</p>
-<h2 id="FTW-Agent-Architecture"><a href="#FTW-Agent-Architecture" class="headerlink" title="FTW Agent Architecture"></a>FTW Agent Architecture</h2><p>Fully observed Markov Decision Process的目标为最大化$\mathbb{ E } _ {\pi \left( \cdot | \mathbf{ s } _ { t } \right)} \left[ R _ { t } \right]$，而Partially-Observed Markov De-<br>cision Process的目标就变成为最大化$\mathbb{ E } _ { \pi \left( \cdot | \mathbf{ x } _ { \leq t} \right) } \left[ R _ { t } \right]$——基于agent观察历史的policy预期回报。，其中$\mathbf{ x }$表示agent对于环境的观测值。由于给定观测值的真实状态的模糊性，即用公式表示为$\mathbb{ P } \left( \mathbf{ s } _ { t } | \mathbf{ x } _ { \leq t} \right)$，将当前值表示为随机变量$V _ { t } = \mathbb{ E } _ { \pi \left( \cdot | \mathbf{ x } _ { \leq t} \right) } \left[ R _ {t} \right]=\sum _ {\mathbf{ s }} \mathbb{P} \left( \mathbf{s} | \mathbf{ x } _ { &lt; t} \right) \mathbb{ E } _ { \pi ( \cdot | \mathbf{ s })} \left[R _ { t } \right]$。</p>
+<h2 id="FTW-Agent-Architecture"><a href="#FTW-Agent-Architecture" class="headerlink" title="FTW Agent Architecture"></a>FTW Agent Architecture</h2><p>Fully observed Markov Decision Process的目标为最大化$\mathbb{ E } _ {\pi \left( \cdot | \mathbf{ s } _ { t } \right)} \left[ R _ { t } \right]$，而Partially-Observed Markov Decision Process的目标就变成为最大化$\mathbb{ E } _ { \pi \left( \cdot | \mathbf{ x } _ { \leq t} \right) } \left[ R _ { t } \right]$——基于agent观察历史的policy预期回报。，其中$\mathbf{ x }$表示agent对于环境的观测值。由于给定观测值的真实状态的模糊性，即用公式表示为$\mathbb{ P } \left( \mathbf{ s } _ { t } | \mathbf{ x } _ { \leq t} \right)$，将当前值表示为随机变量$V _ { t } = \mathbb{ E } _ { \pi \left( \cdot | \mathbf{ x } _ { \leq t} \right) } \left[ R _ {t} \right]=\sum _ {\mathbf{ s }} \mathbb{P} \left( \mathbf{s} | \mathbf{ x } _ { &lt; t} \right) \mathbb{ E } _ { \pi ( \cdot | \mathbf{ s })} \left[R _ { t } \right]$。</p>
 <p>利用Kullback-Leibler散度（KL散度）正则化目标函数，其中策略$\mathbb{Q}$针对先前策略$\mathbb{P}$进行了规则化。将策略$\mathbb{Q}$和策略$\mathbb{P}$两者都包含latent variable $\mathbf{z}_t$，其目的是模拟对过去观察的依赖性。</p>
 <p>目标函数定义为：</p>
 <figure class="image-bubble">
@@ -239,22 +239,22 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>其中$\mathbb{P}\left(\mathbf{z}<em>{t} | \mathbf{C}</em>{t}^{p}\right)$和$\mathbb{Q}\left(\mathbf{z}<em>{t} | \mathbf{C}</em>{t}^{q}\right)$是$\mathbf{z}<em>t $上的先验和变分后验分布，分别以不同变量集$\mathrm{C}</em>{t}^{p}$和$\mathrm{C}<em>{t}^{q}$为条件，$D</em>{\mathrm{KL}}$是Kullback-Leibler散度。变量$\mathrm{C}<em>{t}^{p}$和$\mathrm{C}</em>{t}^{q}$的集合确定了agent的概率模型的结构，并且可以用于为模型具备有代表性的先验。</p>
-<p>使用两个不同时间尺度上运行的循环神经网络（LSTM）组成的 hierarchy RNN。<br>hierarchy RNN的快速层core在每个步骤$t$产生隐藏状态$\mathbf{h}_{t}^{q}$，而其慢速层core每$τ$步产生更新的隐藏状态<figure class="image-bubble">
+<p>其中$\mathbb{ P } \left( \mathbf{ z } _ { t } | \mathbf{ C } _ { t } ^ { p } \right)$和$\mathbb{ Q } \left( \mathbf{ z } _ { t } | \mathbf{ C } _ { t } ^ { q } \right)$是$\mathbf{ z } _ t $上的先验和变分后验分布，分别以不同变量集$\mathrm{ C } _ { t } ^ { p }$和$\mathrm{ C } _ { t }  ^ { q }$为条件，$D _ { \mathrm{ KL }}$是Kullback-Leibler散度。变量$\mathrm{ C } _ { t } ^ { p }$和$\mathrm{ C } _ { t } ^ { q }$的集合确定了agent的概率模型的结构，并且可以用于为模型具备有代表性的先验。</p>
+<p>使用两个不同时间尺度上运行的循环神经网络（LSTM）组成的 hierarchy RNN。<br>hierarchy RNN的快速层core在每个步骤$t$产生隐藏状态$\mathbf{ h } _ { t } ^ { q }$，而其慢速层core每$τ$步产生更新的隐藏状态<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://i.loli.net/2020/01/16/UeOTvBhjJbXt5Pw.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>。</p>
-<p>使用快速层LSTM的输出作为变分后验，即$\mathbb{Q}\left(\mathbf{z}<em>{t} | \mathbb{P}\left(\mathbf{z}</em>{t}\right), \mathbf{z}<em>{&lt;t}, \mathbf{x}</em>{ \leq t}, a_{&lt;t}, r_{&lt;t}\right)=\mathcal{N}\left(\mu_{t}^{q}, \Sigma_{t}^{q}\right)$，其中正态分布的均值$\mu_{t}^{q}$和方差$\Sigma_{t}^{q}=\left(\sigma_{t}^{q} \mathbf{I}\right)^{2}$都是通过线性变换$\left(\mu_{t}^{q}, \log \sigma_{t}^{q}\right)=f_{q}\left(\mathbf{h}<em>{t}^{q}\right)$得到的，并且在每一个时间步$t$上采样得到$\mathbf{z}</em>{t} \sim \mathcal{N}\left(\mu_{t}^{q}, \Sigma_{t}^{q}\right)$。同理，在慢速层LSTM中<figure class="image-bubble">
+<p>使用快速层LSTM的输出作为变分后验，即$\mathbb{ Q } \left( \mathbf{ z } _ { t } | \mathbb{ P } \left( \mathbf{ z } _ { t } \right), \mathbf{ z } _ { &lt; t }, \mathbf{ x } _ { \leq t}, a _ { &lt; t }, r _ { &lt; t } \right) = \mathcal{ N } \left( \mu _ { t } ^ { q } , \Sigma _ { t } ^ { q } \right)$，其中正态分布的均值$\mu _ { t } ^ { q }$和方差$\Sigma _ { t } ^ { q } = \left( \sigma _ { t } ^ { q } \mathbf{ I } \right) ^ { 2 }$都是通过线性变换$\left( \mu _ { t } ^ { q }, \log \sigma _ { t } ^ { q } \right) = f _ { q } \left( \mathbf{ h } _ { t } ^ { q }\right)$得到的，并且在每一个时间步$t$上采样得到$\mathbf{ z } _ { t } \sim \mathcal{ N } \left(\mu _ { t } ^ { q }, \Sigma _ { t } ^ { q } \right)$。同理，在慢速层LSTM中<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/01/16/zO92RLj7XvaH6Vm.png)，其中$\Sigma_{t}^{p}=\left(\sigma_{t}^{p}" alt="mathbf{I}ight)^{2}$并且$left(mu_{t}^{p}," title="">
+                    <img src="https://i.loli.net/2020/01/16/zO92RLj7XvaH6Vm.png)，其中$\Sigma" alt="_" title="">
                 </div>
-                <div class="image-caption">mathbf{I}ight)^{2}$并且$left(mu_{t}^{p},</div>
+                <div class="image-caption">_</div>
             </figure>$，$f_p$表示一个线性变换。</p>
-<p>快速层core将由卷积神经网络（CNN）编码的观测值即$\mathbf{u}<em>{t}=\mathrm{CNN}\left(\mathbf{x}</em>{t}\right)$，上一个动作$a_{t-1}$，上一个reward$r_{t-1}$，先验分布参数$\mu_{t}^{p}$和$\Sigma_{t}^{p}$，以及上一个后验分布的采样$\mathbf{Z}<em>{t-1} \sim \mathcal{N}\left(\mu</em>{t-1}^{q}, \Sigma_{t-1}^{q}\right)$。慢速层core将快速层core的隐藏状态作为输入，即得</p>
+<p>快速层core将由卷积神经网络（CNN）编码的观测值即$\mathbf{ u } _ { t } =\mathrm{ CNN } \left(\mathbf{ x } _ { t } \right)$，上一个动作$a _ { t-1 }$，上一个reward$r _ { t-1 }$，先验分布参数$\mu _ { t } ^ { p }$和$\Sigma _ { t } ^ { p }$，以及上一个后验分布的采样$\mathbf{ Z } _ { t - 1 } \sim \mathcal{ N }\left( \mu _ { t-1 } ^ { q }, \Sigma _ { t-1 } ^ { q } \right)$。慢速层core将快速层core的隐藏状态作为输入，即得</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
