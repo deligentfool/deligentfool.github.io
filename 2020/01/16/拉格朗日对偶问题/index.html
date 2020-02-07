@@ -21,16 +21,16 @@
     
     
     <meta name="keywords" content="优化">
-    <meta name="description" content="1. 原始问题假设$f(x),c_i(x),h_j(x)$是定义在$R^n$上的连续可微函数，考虑约束最优化问题： ​                                $\min _ { x \in R ^ { n } } f ( x )$ ​                            s.t.c $_ { i } ( x ) \leq 0 , i &#x3D; 1,2 , \do">
+    <meta name="description" content="1. 原始问题假设$f(x),c_i(x),h_j(x)$是定义在$R^n$上的连续可微函数，考虑约束最优化问题： $$\min _ { x \in R ^ { n } } f ( x )$$ $$s.t.c _ { i } ( x ) \leq 0 , i &#x3D; 1,2 , \dots , k$$ $$h _ { j } ( x ) &#x3D; 0 , j &#x3D; 1,2 , \ldots , l$$ 称为约">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拉格朗日对偶问题">
 <meta property="og:url" content="http://yoursite.com/2020/01/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="徐韭菜的博客">
-<meta property="og:description" content="1. 原始问题假设$f(x),c_i(x),h_j(x)$是定义在$R^n$上的连续可微函数，考虑约束最优化问题： ​                                $\min _ { x \in R ^ { n } } f ( x )$ ​                            s.t.c $_ { i } ( x ) \leq 0 , i &#x3D; 1,2 , \do">
+<meta property="og:description" content="1. 原始问题假设$f(x),c_i(x),h_j(x)$是定义在$R^n$上的连续可微函数，考虑约束最优化问题： $$\min _ { x \in R ^ { n } } f ( x )$$ $$s.t.c _ { i } ( x ) \leq 0 , i &#x3D; 1,2 , \dots , k$$ $$h _ { j } ( x ) &#x3D; 0 , j &#x3D; 1,2 , \ldots , l$$ 称为约">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="https://i.loli.net/2020/01/16/PA4qCtYJj5rOiTD.png">
 <meta property="article:published_time" content="2020-01-16T06:15:26.000Z">
-<meta property="article:modified_time" content="2020-01-16T07:48:28.999Z">
+<meta property="article:modified_time" content="2020-02-07T10:19:53.989Z">
 <meta property="article:author" content="Xu Zhiwei">
 <meta property="article:tag" content="优化">
 <meta name="twitter:card" content="summary">
@@ -183,9 +183,9 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="1-原始问题"><a href="#1-原始问题" class="headerlink" title="1. 原始问题"></a>1. 原始问题</h2><p>假设$f(x),c_i(x),h_j(x)$是定义在$R^n$上的连续可微函数，考虑约束最优化问题：</p>
-<p>​                                $\min _ { x \in R ^ { n } } f ( x )$</p>
-<p>​                            s.t.c $_ { i } ( x ) \leq 0 , i = 1,2 , \dots , k$</p>
-<p>​                            $h _ { j } ( x ) = 0 , j = 1,2 , \ldots , l$</p>
+<p>$$<br>\min _ { x \in R ^ { n } } f ( x )<br>$$</p>
+<p>$$<br>s.t.c _ { i } ( x ) \leq 0 , i = 1,2 , \dots , k<br>$$</p>
+<p>$$<br>h _ { j } ( x ) = 0 , j = 1,2 , \ldots , l<br>$$</p>
 <p>称为约束最优化问题的<strong>原始问题</strong>。</p>
 <p>现在如果不考虑约束条件，原始问题就是：</p>
 <p>​                                $\min _ { x \in R ^ { n } } f ( x )$</p>
