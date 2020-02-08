@@ -14,33 +14,32 @@
     
     
     
-    <title>Quantile Regression DQN 算法原理 | 徐韭菜的博客</title>
+    <title>Hierarchy DQN 算法原理 | 徐韭菜的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="DQN,强化学习">
-    <meta name="description" content="序Quantile Regression DQN（简称为QR DQN）与Categorical DQN算法一样，都属于Distribution DQN，即估计q-value的神经网络返回的不是一个确定的值，而是一个分布。但是两者不尽相同，下面对两个算法进行一下对比。 Categorical DQN(C51)算法Categorical DQN的一个经典算法就是C51算法。该算法首先通过设置超参数$V">
+    <meta name="description" content="序Hierarchy DQN算法是致力于解决稀疏回报、或者延迟回报问题。在存在上述问题的环境中，Hierarchy DQN算法与其他算法相比学习的效率和效果都有显著的提升。 算法原理整个模型的结构如下图：                                                                                              算法结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quantile Regression DQN 算法原理">
-<meta property="og:url" content="http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:title" content="Hierarchy DQN 算法原理">
+<meta property="og:url" content="http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="徐韭菜的博客">
-<meta property="og:description" content="序Quantile Regression DQN（简称为QR DQN）与Categorical DQN算法一样，都属于Distribution DQN，即估计q-value的神经网络返回的不是一个确定的值，而是一个分布。但是两者不尽相同，下面对两个算法进行一下对比。 Categorical DQN(C51)算法Categorical DQN的一个经典算法就是C51算法。该算法首先通过设置超参数$V">
+<meta property="og:description" content="序Hierarchy DQN算法是致力于解决稀疏回报、或者延迟回报问题。在存在上述问题的环境中，Hierarchy DQN算法与其他算法相比学习的效率和效果都有显著的提升。 算法原理整个模型的结构如下图：                                                                                              算法结构">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://i.loli.net/2020/02/05/jHphfbBwQCFJG1e.png">
-<meta property="og:image" content="https://i.loli.net/2020/02/07/LkISwHxVKtTOpvh.png">
-<meta property="og:image" content="https://i.loli.net/2020/02/05/acyHUixCJ6v1BTW.png">
-<meta property="og:image" content="https://i.loli.net/2020/02/07/nyBOCL9VDwKJTtP.png">
-<meta property="og:image" content="https://i.loli.net/2020/02/07/Wo4NX2EPseazmiH.png">
-<meta property="og:image" content="https://i.loli.net/2020/02/07/v6VuFSgIehUpDWw.png">
-<meta property="article:published_time" content="2020-02-07T10:16:51.000Z">
-<meta property="article:modified_time" content="2020-02-07T10:46:39.290Z">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/2i1RytGeDq3avwK.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/3ZKkzshHF5uNb1Y.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/FMilORmqB6u8anT.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/FTNkj4WyesCnuzI.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/DSaIyMCT3KQ7o4Z.png">
+<meta property="article:published_time" content="2020-02-08T09:03:33.000Z">
+<meta property="article:modified_time" content="2020-02-08T09:04:29.246Z">
 <meta property="article:author" content="Xu Zhiwei">
 <meta property="article:tag" content="DQN">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/02/05/jHphfbBwQCFJG1e.png">
+<meta name="twitter:image" content="https://i.loli.net/2020/02/08/2i1RytGeDq3avwK.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -119,7 +118,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Quantile Regression DQN 算法原理</div>
+        <div class="flex-col header-title ellipsis">Hierarchy DQN 算法原理</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -141,11 +140,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Quantile Regression DQN 算法原理</h1>
+        <h1 class="title">Hierarchy DQN 算法原理</h1>
         <h5 class="subtitle">
             
-                <time datetime="2020-02-07T10:16:51.000Z" itemprop="datePublished" class="page-time">
-  2020-02-07
+                <time datetime="2020-02-08T09:03:33.000Z" itemprop="datePublished" class="page-time">
+  2020-02-08
 </time>
 
 
@@ -164,18 +163,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序"><span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Categorical-DQN-C51-算法"><span class="post-toc-text">Categorical DQN(C51)算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#QR-DQN算法"><span class="post-toc-text">QR DQN算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结"><span class="post-toc-text">结</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序"><span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算法原理"><span class="post-toc-text">算法原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实验"><span class="post-toc-text">实验</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结"><span class="post-toc-text">结</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-Quantile-Regression-DQN-算法原理"
+<article id="post-Hierarchy-DQN-算法原理"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Quantile Regression DQN 算法原理</h1>
+        <h1 class="post-card-title">Hierarchy DQN 算法原理</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-02-07 18:16:51" datetime="2020-02-07T10:16:51.000Z"  itemprop="datePublished">2020-02-07</time>
+            <time class="post-time" title="2020-02-08 17:03:33" datetime="2020-02-08T09:03:33.000Z"  itemprop="datePublished">2020-02-08</time>
 
             
 
@@ -188,65 +187,59 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>Quantile Regression DQN（简称为QR DQN）与Categorical DQN算法一样，都属于Distribution DQN，即估计q-value的神经网络返回的不是一个确定的值，而是一个分布。但是两者不尽相同，下面对两个算法进行一下对比。</p>
-<h2 id="Categorical-DQN-C51-算法"><a href="#Categorical-DQN-C51-算法" class="headerlink" title="Categorical DQN(C51)算法"></a>Categorical DQN(C51)算法</h2><p>Categorical DQN的一个经典算法就是C51算法。该算法首先通过设置超参数$V _ {min}$、$V _ {max}$规定q-value的范围，并设置原子数$N$来将这个范围进行划分，也就是说将$[ V _ {min}, V _ {max} ]$等距划分为$N - 1$块，每块长度为$\Delta z = \frac{V _ {max} - V _ {min}}{N - 1}$。这样共构成$N$个端点：$V _ {min} + \frac{V _ {max} - V _ {min}}{N - 1} \times i,i \in { 0, 1, 2, \dots, N - 1 }$，构成了<strong>support</strong>向量。</p>
-<p>神经网络的输出维度为<code>[action_dim, atom_num]</code>（忽略第一个维度batch_size），其中<code>atom_num</code>就是上面提到的$N$。然后对应每一个动作得到的$N$维值进行softmax处理，化为概率值。<br>$$<br>Z_{\theta}(x, a) = z _ { i } \quad \text { w.p. } \quad p _ { i }(x, a) : = \frac{e ^ {\theta _ { i }(x, a)}}{\sum _ {j} e ^ {\theta _ { j } (x, a)}}<br>$$<br>目标q-value值的分布$\mathcal{ T } Z$的计算公式为：<br>$$<br>\mathcal{ T } ^ { \pi } Z(x, a) : = R(x, a) + \gamma P ^ { \pi } Z(x, a)<br>$$<br>其中<br>$$<br>P ^ { \pi } Z(x, a) : = Z \left( X ^ { \prime },  A ^ { \prime } \right) \qquad<br>X ^ { \prime }  \sim P( \cdot | x, a), A ^ { \prime } \sim \pi \left( \cdot | X ^ { \prime } \right)<br>$$<br>这样计算出来的目标分布与实际分布之间的距离计算存在困难，因为可能出现disjoint-support问题。因此需要将目标分布进行投影，然后计算两个分布的KL散度作为损失距离，投影公式为：<br>$$<br>\left(\Phi \hat{\mathcal{ T }} Z _ {\theta}(x, a)\right) _ { i } = \sum _ { j = 0 } ^ { N - 1 } \left[ 1 - \frac{ | \left[ \hat { \mathcal{T}} z _ { j }\right] _ { V _ {\text { min }}} ^ {V _ {\text {max }}} - z _ {i} |}{\Delta z} \right] _ { 0 } ^ { 1 } p _ { j }\left( x ^ {\prime}, \pi \left( x ^ {\prime} \right) \right)<br>$$<br>投影图解为：</p>
+            <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>Hierarchy DQN算法是致力于解决稀疏回报、或者延迟回报问题。在存在上述问题的环境中，Hierarchy DQN算法与其他算法相比学习的效率和效果都有显著的提升。</p>
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>整个模型的结构如下图：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/02/05/jHphfbBwQCFJG1e.png" alt="投影图解 1" title="">
+                    <img src="https://i.loli.net/2020/02/08/2i1RytGeDq3avwK.png" alt="算法结构" title="">
                 </div>
-                <div class="image-caption">投影图解 1</div>
+                <div class="image-caption">算法结构</div>
             </figure>
 
+<p>整个结构存在两个DQN结构，分别是Controller以及Meta Controller。其中Meta Controller的输入为外部环境状态，输出为goal，goal是一个离散变量（因为DQN输出空间是离散的），可以让该离散变量与<strong>次目标状态</strong>一一对应。Controller的输入为外部环境状态与Meta Controller输出的次目标状态的结合，输出为Agent相应的动作。另外，内部的Critic负责判断当前状态与次目标状态是否一致（即Agent是否完成Meta Controller输出的次目标）并依据此来给出内部的reward。</p>
+<p>Controller和Meta Controller的replay buffer是分开的，Meta Controller对应的每一条存储记录可以表示为$(s, g, f, s ^ {\prime})$，Controller则表示为$({ s, g}, a, r, { s ^ {\prime}, g})$。其中$f$表示外部reward，$r$表示内部reward，$g$表示goal。</p>
+<p>Controller估计的q-value公式可以表示为：<br>$$<br>Q _ {1} ^ {\ast} (s, a; g) = \max _ { \pi _ {a g}} \mathrm{ E } \left[ \sum _ { t ^ { \prime } = t } ^ { \infty } \gamma ^ { t ^ { \prime } - t } r _ { t ^ { \prime } } | s _ { t } = s , a _ { t } = a , g _ { t } = g, \pi _ { ag}\right]<br>$$<br>即可以进一步表示为：</p>
+<p>$$<br>Q _ {1} ^ {\ast} (s, a; g) = \max _ {\pi _ { a g } } \mathrm{ E } \left[ r _ { t } + \gamma \max _ { a _ { t + 1 } } Q _ { 1 } ^ { * } \left( s _ { t + 1 }, a _ { t + 1 } ; g \right) | s _ { t } = s, a _ { t } = a, g _ { t } = g, \pi _ {a g} \right]<br>$$</p>
+<p>Meta Controller的q-value公式可以表示为：<br>$$<br>Q _ { 2 } ^ { \ast } ( s , g ) = \max _ { \pi _ { g } } \mathrm{ E } \left[ \sum _ { t ^ { \prime } = t } ^ { t + N } f _ { t ^ { \prime } } + \gamma \max _ { g ^ { \prime } } Q _ { 2 } ^ { \ast } \left( s _ { t + N }, g ^ { \prime } \right) | s _ { t } = s, g _ { t } = g, \pi _ { g } \right]<br>$$<br>整个运行计算流程如下：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/02/07/LkISwHxVKtTOpvh.png" alt="投影图解 2" title="">
+                    <img src="https://i.loli.net/2020/02/08/3ZKkzshHF5uNb1Y.png" alt="运行计算" title="">
                 </div>
-                <div class="image-caption">投影图解 2</div>
+                <div class="image-caption">运行计算</div>
             </figure>
 
-<p>算法伪代码为：</p>
+<p>损失函数沿用DQN常用的MSELoss，通过缩短target q-value和现实的q-value之间的差异使Agent得到训练。整个算法的伪代码如下，需要注意的是，两个神经网络$Q _ 1$和$Q _ 2$（对应于Controller和Meta Controller）的训练频率是不同的，Meta Controller的训练频率更低。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/02/05/acyHUixCJ6v1BTW.png" alt="Categorical DQN伪代码" title="">
+                    <img src="https://i.loli.net/2020/02/08/FMilORmqB6u8anT.png" alt="伪代码" title="">
                 </div>
-                <div class="image-caption">Categorical DQN伪代码</div>
+                <div class="image-caption">伪代码</div>
             </figure>
 
-<h2 id="QR-DQN算法"><a href="#QR-DQN算法" class="headerlink" title="QR DQN算法"></a>QR DQN算法</h2><p>虽然QR DQN算法也是神经网络输出一个分布，但是与Categorical DQN正好相反。该算法只需设定一个<code>quantile_num</code>，在这里也记为$N$，该参数用来将概率$[0, 1]$划分为$N$块，得到$N$个累积概率：$\tau _ { i } = \frac{i}{N}, i \in { 1, 2, \dots, N }$。为了方便，$\tau _ { 0 } = 0$。</p>
-<p>而神经网络输出的是q-value实值（也就是分位数，用$\theta$表示），因此与C51算法相比，少了对于q-value值范围参数的假设，即不用设置$V _ {min}$和$V _ {max}$。</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>论文中设计了一个比较简单的环境来验证算法的有效性。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/02/07/nyBOCL9VDwKJTtP.png" alt="N=4时估计分布" title="">
+                    <img src="https://i.loli.net/2020/02/08/FTNkj4WyesCnuzI.png" alt="实验" title="">
                 </div>
-                <div class="image-caption">N=4时估计分布</div>
+                <div class="image-caption">实验</div>
             </figure>
 
-<p>利用Huber loss来作为神经网络的目标函数，Huber Loss可以表示为：</p>
+<p>实验环境如图：一共有6个状态、2个动作——动作0或动作1。动作0表示Agent有0.5的概率向右走，0.5的概率向左走；动作1则是Agent直接向左走。Agent初始位置为状态2，终止状态为状态1，如果Agent曾经到达过最右端的状态6，则到达终止状态1时可获得1的回报；如果未曾到达状态6就终止，则获得0.01的回报。</p>
+<p>论文的实验结果如下：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/02/07/Wo4NX2EPseazmiH.png" alt="Huber Loss" title="">
+                    <img src="https://i.loli.net/2020/02/08/DSaIyMCT3KQ7o4Z.png" alt="实验结果" title="">
                 </div>
-                <div class="image-caption">Huber Loss</div>
+                <div class="image-caption">实验结果</div>
             </figure>
 
-<p>$u$表示$( Z - \theta )$。这里在$u$接近0的时候将损失函数进L行改变得到Quantile Huber Loss：<br>$$<br>\rho _ { \tau } ^ { \kappa } ( u ) = \left| \tau - \delta _ { { u &lt; 0 } } \right| \mathcal{ L } _ { \kappa } ( u )<br>$$<br>QR DQN算法的伪代码为：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/02/07/v6VuFSgIehUpDWw.png" alt="QR DQN伪代码" title="">
-                </div>
-                <div class="image-caption">QR DQN伪代码</div>
-            </figure>
-
-<h2 id="结"><a href="#结" class="headerlink" title="结"></a>结</h2><p>从宏观上看，Categorical DQN与Quantile Regression DQN正好是相反的，Categorical DQN神经网络输出的是概率，QR DQN输出的是q-value实值。因此QR DQN能够避免人为设置参数$V _ {min}$和$V _ {max}$，同时避免了繁重的投影操作。</p>
-<p>另外论文中的理论部分比较复杂，比如Wasserstein Metric以及quantile regression等，需要投入较多的精力进行好好的研读。</p>
-<p>代码实现：<a href="https://github.com/deligentfool/dqn_zoo/tree/master/QR%20DQN" target="_blank" rel="noopener">github地址</a></p>
+<h2 id="结"><a href="#结" class="headerlink" title="结"></a>结</h2><p>该算法中的goal需要经过一定的人为设定，即次目标需要预先人为设计，不过从实验中来看针对某些实验确实能得到较好的效果。</p>
+<p>实现代码：<a href="https://github.com/deligentfool/dqn_zoo/tree/master/Hierarchy%20DQN" target="_blank" rel="noopener">GitHub地址</a></p>
 
         </div>
 
@@ -287,7 +280,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&title=《Quantile Regression DQN 算法原理》 — 徐韭菜的博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&title=《Hierarchy DQN 算法原理》 — 徐韭菜的博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -297,22 +290,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&title=《Quantile Regression DQN 算法原理》 — 徐韭菜的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&title=《Hierarchy DQN 算法原理》 — 徐韭菜的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Quantile Regression DQN 算法原理》 — 徐韭菜的博客&url=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hierarchy DQN 算法原理》 — 徐韭菜的博客&url=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -332,21 +325,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Hierarchy DQN 算法原理</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/02/05/DQN%E5%8F%8A%E5%85%B6%E5%A4%9A%E7%A7%8D%E5%8F%98%E5%BC%8F/" id="post-next" class="post-nav-link">
+      <a href="/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">DQN及其多种变式</h4>
+        <h4 class="title">Quantile Regression DQN 算法原理</h4>
       </a>
     </div>
   
@@ -468,7 +454,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&title=《Quantile Regression DQN 算法原理》 — 徐韭菜的博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&title=《Hierarchy DQN 算法原理》 — 徐韭菜的博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -478,22 +464,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&title=《Quantile Regression DQN 算法原理》 — 徐韭菜的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&title=《Hierarchy DQN 算法原理》 — 徐韭菜的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Quantile Regression DQN 算法原理》 — 徐韭菜的博客&url=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hierarchy DQN 算法原理》 — 徐韭菜的博客&url=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -504,7 +490,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2020/02/07/Quantile-Regression-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2020/02/08/Hierarchy-DQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
 </div>
 
 
