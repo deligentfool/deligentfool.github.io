@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>LSTM 原理 | 徐韭菜的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="深度学习,LSTM">
+    <meta name="description" content="LSTM网络long short term memory，即我们所称呼的LSTM，是为了解决长期以来问题而专门设计出来的，所有的RNN都具有一种重复神经网络模块的链式形式。在标准RNN中，这个重复的结构模块只有一个非常简单的结构，例如一个tanh层。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LSTM 原理">
+<meta property="og:url" content="http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="徐韭菜的博客">
+<meta property="og:description" content="LSTM网络long short term memory，即我们所称呼的LSTM，是为了解决长期以来问题而专门设计出来的，所有的RNN都具有一种重复神经网络模块的链式形式。在标准RNN中，这个重复的结构模块只有一个非常简单的结构，例如一个tanh层。">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/dGOYoKbZJ4NT3Xg.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/Ha9U1CejRtgrQXy.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/Fa84qIzW6ScmPrE.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/AlRYCJgsKqGWjZ3.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/uUcDR8dtsvGxVPJ.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/k52MijAnIKWVulq.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/NTpGzigFkM6xIP1.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/2gtJLjGzrSBsx4K.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/mR43dHKavhWQZCz.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/tnFPUy5Rhle7HCx.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/01/SljGaxQCJdU1Asg.jpg">
+<meta property="article:published_time" content="2020-03-01T07:12:42.000Z">
+<meta property="article:modified_time" content="2020-03-01T07:14:30.753Z">
+<meta property="article:author" content="Xu Zhiwei">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="LSTM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/03/01/dGOYoKbZJ4NT3Xg.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xu Zhiwei</h5>
+          <a href="mailto:diligencexu@gmail.com" title="diligencexu@gmail.com" class="mail">diligencexu@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/deligentfool" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">LSTM 原理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">LSTM 原理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-01T07:12:42.000Z" itemprop="datePublished" class="page-time">
+  2020-03-01
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LSTM网络"><span class="post-toc-text">LSTM网络</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LSTM核心原理"><span class="post-toc-text">LSTM核心原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逐渐理解LSTM"><span class="post-toc-text">逐渐理解LSTM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#遗忘门"><span class="post-toc-text">遗忘门</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入门"><span class="post-toc-text">输入门</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输出门"><span class="post-toc-text">输出门</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LSTM变体"><span class="post-toc-text">LSTM变体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多层LSTM"><span class="post-toc-text">多层LSTM</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pytorch-编程实现"><span class="post-toc-text">pytorch 编程实现</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-LSTM-原理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">LSTM 原理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-01 15:12:42" datetime="2020-03-01T07:12:42.000Z"  itemprop="datePublished">2020-03-01</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="LSTM网络"><a href="#LSTM网络" class="headerlink" title="LSTM网络"></a>LSTM网络</h2><p>long short term memory，即我们所称呼的LSTM，<strong>是为了解决长期以来问题而专门设计出来的</strong>，所有的RNN都具有一种重复神经网络模块的链式形式。在标准RNN中，这个重复的结构模块只有一个非常简单的结构，例如一个tanh层。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/dGOYoKbZJ4NT3Xg.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>LSTM 同样是这样的结构，但是重复的模块拥有一个不同的结构。不同于单一神经网络层，这里是有四个，以一种非常特殊的方式进行交互。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/Ha9U1CejRtgrQXy.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>不必担心这里的细节。我们会一步一步地剖析 LSTM 解析图。现在，我们先来熟悉一下图中使用的各种元素的图标。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/Fa84qIzW6ScmPrE.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>在上面的图例中，每一条黑线传输着一整个向量，从一个节点的输出到其他节点的输入。粉色的圈代表pointwise的操作，诸如向量的和，而黄色的矩阵就是学习到的神经网络层。合在一起的线表示向量的连接，分开的线表示内容被复制，然后分发到不同的位置。</p>
+<hr>
+<h2 id="LSTM核心原理"><a href="#LSTM核心原理" class="headerlink" title="LSTM核心原理"></a>LSTM核心原理</h2><p>LSTM的关键在于细胞的状态整个(绿色的图表示的是一个cell)，和穿过细胞的那条水平线。</p>
+<p>细胞状态类似于传送带。直接在整个链上运行，只有一些少量的线性交互。信息在上面流传保持不变会很容易。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/AlRYCJgsKqGWjZ3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>若只有上面的那条水平线是没办法实现添加或者删除信息的。而是通过一种叫做 门（gates） 的结构来实现的。</p>
+<p>门 可以实现选择性地让信息通过，主要是通过一个 sigmoid 的神经层 和一个逐点相乘的操作来实现的。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/uUcDR8dtsvGxVPJ.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>sigmoid 层输出（是一个向量）的每个元素都是一个在 0 和 1 之间的实数，表示让对应信息通过的权重（或者占比）。比如， 0 表示“不让任何信息通过”， 1 表示“让所有信息通过”。</p>
+<p>LSTM通过三个这样的本结构来实现信息的保护和控制。这三个门分别输入门、遗忘门和输出门。</p>
+<hr>
+<h2 id="逐渐理解LSTM"><a href="#逐渐理解LSTM" class="headerlink" title="逐渐理解LSTM"></a>逐渐理解LSTM</h2><p>现在我们就开始通过三个门逐步的了解LSTM的原理。</p>
+<h3 id="遗忘门"><a href="#遗忘门" class="headerlink" title="遗忘门"></a>遗忘门</h3><p>在我们 LSTM 中的第一步是决定我们会从细胞状态中丢弃什么信息。这个决定通过一个称为忘记门层完成。该门会读取$h_{t-1}$和$x_t$，输出一个在 0到 1之间的数值给每个在细胞状态$C_{t-1}$中的数字。1 表示“完全保留”，0 表示“完全舍弃”。</p>
+<p>让我们回到语言模型的例子中来基于已经看到的预测下一个词。在这个问题中，细胞状态可能包含当前主语的性别，因此正确的代词可以被选择出来。当我们看到新的主语，我们希望忘记旧的主语。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/k52MijAnIKWVulq.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>$f _ { t } = \sigma \left( W _ { f } \cdot \left[ h _ { t - 1 } , x _ { t } \right] + b _ { f } \right)$</p>
+<p>其中$h_{t-1}$表示的是上一个cell的输出，$x_{t}$表示的是当前细胞的输入，$\sigma$表示sigmoid函数。</p>
+<h3 id="输入门"><a href="#输入门" class="headerlink" title="输入门"></a>输入门</h3><p>下一步是决定让多少新的信息加入到 cell 状态 中来。实现这个需要包括两个 步骤：首先，一个叫做“input gate layer ”的 sigmoid 层决定哪些信息需要更新；一个 tanh 层生成一个向量，也就是备选的用来更新的内容，$\hat{C_{t}} $。在下一步，我们把这两部分联合起来，对 cell 的状态进行一个更新。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/NTpGzigFkM6xIP1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>$i _ { t } = \sigma \left( W _ { i } \cdot \left[ h _ { t - 1 } , x _ { t } \right] + b _ { i } \right)$</p>
+<p>$\tilde { C } _ { t } = \tanh \left( W _ { C } \cdot \left[ h _ { t - 1 } , x _ { t } \right] + b _ { C } \right)$</p>
+<p>现在是更新旧细胞状态的时间了，$C_{t-1}$转变为$C_t$，前面的步骤已经决定了将会做什么，我们现在就是实际去完成。</p>
+<p>我们把旧状态$C_{t-1}$与$f_t$相乘，丢弃掉我们确定需要丢弃的信息。接着加上$i_t\times \hat{C_t}$。这就是新的候选值，根据我们决定更新每个状态的程度进行变化。</p>
+<p>在语言模型的例子中，这就是我们实际根据前面确定的目标，丢弃旧代词的性别信息并添加新的信息的地方。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/2gtJLjGzrSBsx4K.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>$C _ { t } = f _ { t } * C _ { t - 1 } + i _ { t } * \tilde { C } _ { t }$</p>
+<h3 id="输出门"><a href="#输出门" class="headerlink" title="输出门"></a>输出门</h3><p>最终，我们需要确定输出什么值。这个输出将会基于我们的细胞状态，但是也是一个过滤后的版本。首先，我们运行一个 sigmoid 层来确定细胞状态的哪个部分将输出出去。接着，我们把细胞状态通过 tanh 进行处理（得到一个在 -1 到 1 之间的值）并将它和 sigmoid 门的输出相乘，最终我们仅仅会输出我们确定输出的那部分。</p>
+<p>在语言模型的例子中，因为他就看到了一个 代词，可能需要输出与一个 动词 相关的信息。例如，可能输出是否代词是单数还是负数，这样如果是动词的话，我们也知道动词需要进行的词形变化。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/mR43dHKavhWQZCz.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>$o _ { t } = \sigma \left( W _ { o } \left[ h _ { t - 1 } , x _ { t } \right] + b _ { o } \right)$</p>
+<p>$h _ { t } = o _ { t } * \tanh \left( C _ { t } \right)$</p>
+<hr>
+<h2 id="LSTM变体"><a href="#LSTM变体" class="headerlink" title="LSTM变体"></a>LSTM变体</h2><p>原文这部分介绍了 LSTM 的几个变种，还有这些变形的作用。在这里我就不再写了。有兴趣的可以直接阅读原文。</p>
+<p>下面主要讲一下其中比较著名的变种 GRU（Gated Recurrent Unit ），这是由 Cho, et al. (2014) 提出。在 GRU 中，如下图所示，只有两个门：重置门（reset gate）和更新门（update gate）。同时在这个结构中，把细胞状态和隐藏状态进行了合并。最后模型比标准的 LSTM 结构要简单，而且这个结构后来也非常流行。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/tnFPUy5Rhle7HCx.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>$z _ { t } = \sigma \left( W _ { z } \cdot \left[ h _ { t - 1 } , x _ { t } \right] \right)$</p>
+<p>$r _ { t } = \sigma \left( W _ { r } \cdot \left[ h _ { t - 1 } , x _ { t } \right] \right)$</p>
+<p>$\tilde { h } _ { t } = \tanh \left( W \cdot \left[ r _ { t } * h _ { t - 1 } , x _ { t } \right] \right)$</p>
+<p>$h _ { t } = \left( 1 - z _ { t } \right) * h _ { t - 1 } + z _ { t } * \tilde { h } _ { t }$</p>
+<p>其中，$r_t$ 表示重置门，$z_t$ 表示更新门。重置门决定是否将之前的状态忘记。(作用相当于合并了 LSTM 中的遗忘门和传入门）当$r_t$趋于0的时候，前一个时刻的状态信息$h_{t-1}$会被忘掉，隐藏状态$\hat{h}_t$会被重置为当前输入的信息。更新门决定是否要将隐藏状态更新为新的状态$\hat{h}_t$（作用相当于 LSTM 中的输出门）。</p>
+<p>和 LSTM 比较一下：</p>
+<ul>
+<li>GRU 少一个门，同时少了细胞状态$C_t$。</li>
+<li>在 LSTM 中，通过遗忘门和传入门控制信息的保留和传入；GRU 则通过重置门来控制是否要保留原来隐藏状态的信息，但是不再限制当前信息的传入。</li>
+<li>在 LSTM 中，虽然得到了新的细胞状态 $C_t$，但是还不能直接输出，而是需要经过一个过滤的处理：$h_t=o_t∗tanh(C_t)$；同样，在 GRU 中, 虽然我们也得到了新的隐藏状态$h_{t-1}$。但是还不能直接输出，而是通过更新门来控制最后的输出：$h _ { t } = \left( 1 - z _ { t } \right) * h _ { t - 1 } + z _ { t } * \hat { h } _ { t }$。</li>
+</ul>
+<hr>
+<h2 id="多层LSTM"><a href="#多层LSTM" class="headerlink" title="多层LSTM"></a>多层LSTM</h2><p><strong>多层LSTM是将LSTM进行叠加，其优点是能够在高层更抽象的表达特征，并且减少神经元的个数，增加识别准确率并且降低训练时间。</strong></p>
+<h2 id="pytorch-编程实现"><a href="#pytorch-编程实现" class="headerlink" title="pytorch 编程实现"></a>pytorch 编程实现</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/01/SljGaxQCJdU1Asg.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<ul>
+<li>输入<br>– <strong>input</strong> (seq_len, batch, input_size)（如果batch_first=True则为(batch, seq_len, input_size) ）<br>– <strong>h_0</strong> (num_layers * num_directions, batch, hidden_size)<br>– <strong>c_0</strong> (num_layers * num_directions, batch, hidden_size)</li>
+<li>输出<br>– <strong>output</strong> (seq_len, batch, num_directions * hidden_size)（如果batch_first=True则为(batch, seq_len, num_directions * hidden_size) ）<br>– <strong>h_n</strong> (num_layers * num_directions, batch, hidden_size)<br>– <strong>c_n</strong> (num_layers * num_directions, batch, hidden_size)</li>
+</ul>
+<p>其中num_directions表示在双向LSTM情况下，相当于有两个图中的网络，只不过输入颠倒过来了，再将这两个最终隐状态拼接起来，维度num_layers * 2。</p>
+<p>最重要的就是输出output：输出到底是取output还是用 $h_n$ ，怎么用的都有。其实从图中可以看到，output就是最后一个layer上，序列中每个状态h的集合（若为双向则按位置拼接，输出维度2*hidden_size），所以$h _ n$就是 $output[-1, :, :]$ 。使用LSTM的目的是得到整个序列的embedding，与序列长度无关，由于LSTM具有序列信息传递性，因此一般都取$h_n$当作序列输出。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        <a rel="license noopener" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>本作品采用<a rel="license noopener" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">知识共享署名 4.0 国际许可协议</a>进行许可。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Xu Zhiwei">
+            Xu Zhiwei
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/&title=《LSTM 原理》 — 徐韭菜的博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/&title=《LSTM 原理》 — 徐韭菜的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LSTM 原理》 — 徐韭菜的博客&url=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/28/IQN-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">IQN 算法原理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "qFXMKKaxT8iGcueOvMBGGq2q-gzGzoHsz",
+            appKey: "N4lqUP5q8Guky77ELF8wKWa9",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Xu Zhiwei &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/&title=《LSTM 原理》 — 徐韭菜的博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/&title=《LSTM 原理》 — 徐韭菜的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LSTM 原理》 — 徐韭菜的博客&url=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2020/03/01/LSTM-%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
