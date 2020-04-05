@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/27/MlbsD48yaWCHizV.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/27/uES5BJD2aPN3OsY.png">
 <meta property="article:published_time" content="2020-04-05T09:50:31.000Z">
-<meta property="article:modified_time" content="2020-04-05T09:51:30.421Z">
+<meta property="article:modified_time" content="2020-04-05T09:54:26.448Z">
 <meta property="article:author" content="Xu Zhiwei">
 <meta property="article:tag" content="强化学习">
 <meta property="article:tag" content="Exploration">
@@ -200,7 +200,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<h2 id="VIME"><a href="#VIME" class="headerlink" title="VIME"></a>VIME</h2><p>VIME是通过将信息增益最大化作为构造intrinsic reward的依据。首先对环境动力模型建模，即动力模型表示为$p (s _ {t + 1} | s _ {t}, a _t; \theta)$，其中$\Theta$是随机变量，$\theta \in \Theta$。智能体在时刻$t$之前的历史表示为$\xi _ {t} = \left{s _ {1}, a _ {1}, \ldots, s _ {t} \right}$。智能体应该选择能够最大化减少动力不确定性的动作，即最大化减少熵的动作，表示为：</p>
+<h2 id="VIME"><a href="#VIME" class="headerlink" title="VIME"></a>VIME</h2><p>VIME是通过将信息增益最大化作为构造intrinsic reward的依据。首先对环境动力模型建模，即动力模型表示为$p (s _ {t + 1} | s _ {t}, a _t; \theta)$，其中$\Theta$是随机变量，$\theta \in \Theta$。智能体在时刻$t$之前的历史表示为$ \xi _ { t } = \left{ s _ { 1 }, a _ { 1 }, \ldots, s _ { t } \right}$。智能体应该选择能够最大化减少动力不确定性的动作，即最大化减少熵的动作，表示为：</p>
 <p>$$<br>\sum _ {t}\left(H\left(\Theta | \xi _ {t}, a _ {t}\right) - H \left(\Theta | S _ { t + 1}, \xi _ { t }, a _ {t}\right)\right)<br>$$<br>从上式来看，可以理解为信息增益，信息增益又可以理解为智能体对动力学模型的新认识到旧观念，根据真实的动力学$\mathcal{P}$对所有可能的下一状态的KL散度期望，表示为：</p>
 <p>$$<br>I \left(S _ { t + 1 } ; \Theta | \xi _ {t}, a _ {t}\right) = \mathbb{E} _ { s _ { t + 1 } \sim \mathcal{P}\left(\cdot | \xi_{t}, a _ {t}\right)}\left[D _ {\mathrm{KL}} \left[p \left( \theta | \xi _ {t}, a _ {t}, s _ { t + 1 }\right) | p\left(\theta | \xi _ {t}\right) \right] \right]<br>$$</p>
 <p>因此为了平衡exploration和exploit之间的平衡，新构造的reward $r ^ {\prime}$可以表示为：</p>
