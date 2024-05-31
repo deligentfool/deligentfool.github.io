@@ -21,7 +21,7 @@ Welcome to **Zhiwei Xu**’s Homepage!
 
 I received my Ph.D. degree from the [Institute of Automation, Chinese Academy of Sciences](http://www.ia.cas.cn/), advised by [Prof. Guoliang Fan (范国梁)](https://people.ucas.ac.cn/~fanguoliang). My research interests include <b>Reinforcement Learning</b>, <b>Multi-agent System</b>, and <b>Large Language Model (LLM) Agents</b>.
 
-If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:diligencexu@gmail.com)(diligencexu@gmail.com).
+I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:diligencexu@gmail.com)(diligencexu@gmail.com).
 
 
 # 🔥 News
