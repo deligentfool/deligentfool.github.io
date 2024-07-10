@@ -19,7 +19,7 @@ redirect_from:
 
 Welcome to **Zhiwei Xu**’s Homepage!
 
-I received my Ph.D. degree from the [Institute of Automation, Chinese Academy of Sciences](http://www.ia.cas.cn/), advised by [Prof. Guoliang Fan (范国梁)](https://people.ucas.ac.cn/~fanguoliang). My research interests include <b>Reinforcement Learning</b>, <b>Multi-agent System</b>, and <b>Large Language Model (LLM) Agents</b>.
+I am currently an assistant professor at the [School of Artificial Intelligence](https://ai.sdu.edu.cn/), [Shandong University](https://www.sdu.edu.cn/). I received my Ph.D. degree from the [Institute of Automation, Chinese Academy of Sciences](http://www.ia.cas.cn/), advised by [Prof. Guoliang Fan (范国梁)](https://people.ucas.ac.cn/~fanguoliang). My research interests include <b>Reinforcement Learning</b>, <b>Multi-agent System</b>, and <b>Large Language Model (LLM) Agents</b>.
 
 I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:diligencexu@gmail.com)(diligencexu@gmail.com).
 
@@ -37,7 +37,8 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2022.11*: &nbsp; Two <u>first-author</u> papers are accepted by **AAAI 2023**!
 
 
-# 📖 Educations
+# 📖 Experience
+- *2024.07 - Present*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./images/sduicon.ico" alt="SDU" style="width:20px;height:20px;">  Assistant Professor in [School of Artificial Intelligence](https://ai.sdu.edu.cn/), [Shandong University](https://www.sdu.edu.cn/) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 - *2019.09 - 2024.06*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./images/casicon.ico" alt="CAS" style="width:20px;height:20px;">  Ph.D. in [Institute of Automation](http://www.ia.cas.cn/), [Chinese Academy of Sciences](https://www.cas.cn/) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Supervisor: Prof. [Guoliang Fan](http://people.ucas.ac.cn/~fanguoliang)
 - *2015.09 - 2019.06*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./images/scuicon.png" alt="SCU" style="width:20px;height:20px;">  B.E. in [Wu Yuzhang Honors College](https://www.scu.edu.cn/wyzxy/index.htm), [Sichuan University](https://www.scu.edu.cn/) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 

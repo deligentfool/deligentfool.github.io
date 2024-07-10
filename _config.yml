@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Zhiwei Xu"
-description              : "Ph.D. in Engineering"
+description              : "Assistant Professor"
 repository               : "deligentfool/deligentfool.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,8 +23,8 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Zhiwei Xu \n 徐志伟"
   avatar           : "images/xzw_photo_square.jpg"
-  bio              : "Institute of Automation \n Chinese Academy of Sciences"
-  location         : "Beijing, China"
+  bio              : "Shandong University"
+  location         : "Jinan, China"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=kZoG7ssAAAAJ&hl"
