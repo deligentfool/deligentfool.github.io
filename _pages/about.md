@@ -21,7 +21,7 @@ Welcome to **Zhiwei Xu**’s Homepage!
 
 I am currently an assistant professor at the [School of Artificial Intelligence](https://ai.sdu.edu.cn/), [Shandong University](https://www.sdu.edu.cn/). I received my Ph.D. degree from the [Institute of Automation, Chinese Academy of Sciences](http://www.ia.cas.cn/), advised by [Prof. Guoliang Fan (范国梁)](https://people.ucas.ac.cn/~fanguoliang). My research interests include <b>Reinforcement Learning</b>, <b>Multi-agent System</b>, and <b>Large Language Model (LLM) Agents</b>.
 
-I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:diligencexu@gmail.com)(diligencexu@gmail.com).
+I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn).
 
 
 # 🔥 News
@@ -229,10 +229,11 @@ Dapeng Li, Feiyang Pan, Jia He, <u><b>Zhiwei Xu</b></u>, Dandan Tu, and Guoliang
 [<a href="https://arxiv.org/abs/2303.11716" target="_blank">Arxiv</a>]
 
 # 💻 Services
-- Neural Information Processing Systems (<b>NeurIPS: 2022-2024</b>)
-- International Conference on Learning Representations (<b>ICLR: 2024</b>)
-- International Conference on Machine Learning (<b>ICML: 2024</b>)
-- International Joint Conference on Artificial Intelligence (<b>IJCAI: 2024</b>)
+- Neural Information Processing Systems (<b>NeurIPS</b>)
+- International Conference on Learning Representations (<b>ICLR</b>)
+- International Conference on Machine Learning (<b>ICML</b>)
+- International Joint Conference on Artificial Intelligence (<b>IJCAI</b>)
+- International Conference on Autonomous Agents and Multiagent Systems (<b>AAMAS</b>)
 
 # 🎖 Honors and Awards
 - *2023*&nbsp;&nbsp;  National Scholarship for doctoral students, Ministry of Education
