@@ -229,9 +229,11 @@ Dapeng Li, Feiyang Pan, Jia He, <u><b>Zhiwei Xu</b></u>, Dandan Tu, and Guoliang
 [<a href="https://arxiv.org/abs/2303.11716" target="_blank">Arxiv</a>]
 
 # 💻 Services
+<b>Program Committee Member or Reviewer</b>:
 - Neural Information Processing Systems (<b>NeurIPS</b>)
 - International Conference on Learning Representations (<b>ICLR</b>)
 - International Conference on Machine Learning (<b>ICML</b>)
+- AAAI Conference on Artificial Intelligence (<b>AAAI</b>)
 - International Joint Conference on Artificial Intelligence (<b>IJCAI</b>)
 - International Conference on Autonomous Agents and Multiagent Systems (<b>AAMAS</b>)
 
