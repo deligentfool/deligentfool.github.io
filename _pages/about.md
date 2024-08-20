@@ -204,6 +204,12 @@ Yuan Zhan, <u><b>Zhiwei Xu</b></u>, and Guoliang Fan
 
 ## Pre-prints:
 
+- <b>Beyond Local Views: Global State Inference with Diffusion Models for Cooperative Multi-Agent Reinforcement Learning</b>
+<br>
+<u><b>Zhiwei Xu</b></u>, Hangyu Mao, Nianmin Zhang, Xin Xin, Pengjie Ren, Dapeng Li, Bin Zhang, Guoliang Fan, Zhumin Chen, Changwei Wang, and Jiangjin Yin
+<br>
+[<a href="https://arxiv.org/abs/2408.09501" target="_blank">Arxiv</a>]
+
 - <b>Verco: Learning Coordinated Verbal Communication for Multi-agent Reinforcement Learning</b>
 <br>
 Dapeng Li, Hang Dong, Lu Wang, Bo Qiao, Si Qin, Qingwei Lin, Dongmei Zhang, Qi Zhang, <u><b>Zhiwei Xu</b></u>, Bin Zhang, and Guoliang Fan
