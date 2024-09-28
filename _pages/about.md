@@ -25,6 +25,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
+- *2024.09*: &nbsp; One paper is accepted by **ICONIP 2024**!
 - *2024.05*: &nbsp; One paper is accepted by **ICML 2024**!
 - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**!
 - *2023.12*: &nbsp; One paper is accepted by **ICASSP 2024**!
@@ -34,7 +35,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2023.04*: &nbsp; One paper is accepted by **IJCAI 2023**!
 - *2023.04*: &nbsp; One paper is accepted by **IJCNN 2023**!
 - *2023.02*: &nbsp; One paper is accepted by **ICASSP 2023**!
-- *2022.11*: &nbsp; Two <u>first-author</u> papers are accepted by **AAAI 2023**!
+<!-- - *2022.11*: &nbsp; Two <u>first-author</u> papers are accepted by **AAAI 2023**! -->
 
 
 # 📖 Experience
@@ -57,6 +58,13 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 </div> -->
 
 ## Conferences:
+
+- <b>Decentralized Extension for Centralized Multi-Agent Reinforcement Learning via Online Distillation</b>
+<br>
+<i>International Conference on Neural Information Processing(<b>ICONIP</b>)</i>, in Auckland, New Zealand, 2024.
+<br>
+Zeren Zhang, Bin Zhang, Guangchong Zhou, Dapeng Li, <u><b>Zhiwei Xu</b></u>, and Guoliang Fan
+
 
 - <b>Stackelberg Decision Transformer for Asynchronous Action Coordination in Multi-Agent Systems</b>
 <br>
