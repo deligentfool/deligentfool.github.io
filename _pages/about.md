@@ -25,6 +25,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
+- *2024.12*: &nbsp; Two papers are accepted by **AAAI 2025**!
 - *2024.09*: &nbsp; One paper is accepted by **ICONIP 2024**!
 - *2024.05*: &nbsp; One paper is accepted by **ICML 2024**!
 - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**!
@@ -34,7 +35,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2023.07*: &nbsp; Two papers are accepted by **ICONIP 2023**!
 - *2023.04*: &nbsp; One paper is accepted by **IJCAI 2023**!
 - *2023.04*: &nbsp; One paper is accepted by **IJCNN 2023**!
-- *2023.02*: &nbsp; One paper is accepted by **ICASSP 2023**!
+<!-- - *2023.02*: &nbsp; One paper is accepted by **ICASSP 2023**! -->
 <!-- - *2022.11*: &nbsp; Two <u>first-author</u> papers are accepted by **AAAI 2023**! -->
 
 
@@ -58,6 +59,18 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 </div> -->
 
 ## Conferences:
+
+- <b>Efficient Communication in Multi-Agent Reinforcement Learning with Implicit Consensus Generation</b>
+<br>
+<i>The 39th Annual AAAI Conference on Artificial Intelligence(<b><font color="#FF0000">AAAI</font></b>)</i>, in Philadelphia, Pennsylvania, USA, 2025.
+<br>
+Dapeng Li, Na Lou, <u><b>Zhiwei Xu</b></u>, Bin Zhang, and Guoliang Fan
+
+- <b>Focus on Local: Finding Reliable Discriminative Regions for Visual Place Recognition</b>
+<br>
+<i>The 39th Annual AAAI Conference on Artificial Intelligence(<b><font color="#FF0000">AAAI</font></b>)</i>, in Philadelphia, Pennsylvania, USA, 2025.
+<br>
+Changwei Wang, Shunpeng Chen, Yukun Song, Rongtao Xu, Zherui Zhang, Jiguang zhang, Haoran Yang, Yu Zhang, Kexue Fu, Shide Du, <u><b>Zhiwei Xu</b></u>, Longxiang Gao, Li Guo, and Shibiao Xu
 
 - <b>Decentralized Extension for Centralized Multi-Agent Reinforcement Learning via Online Distillation</b>
 <br>
