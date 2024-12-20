@@ -25,6 +25,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
+- *2024.12*: &nbsp; One paper is accepted by **AAMAS 2025**!
 - *2024.12*: &nbsp; Two papers are accepted by **AAAI 2025**!
 - *2024.09*: &nbsp; One paper is accepted by **ICONIP 2024**!
 - *2024.05*: &nbsp; One paper is accepted by **ICML 2024**!
@@ -34,7 +35,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2023.09*: &nbsp; One <u>first-author</u> paper is accepted by **NeurIPS 2023**!
 - *2023.07*: &nbsp; Two papers are accepted by **ICONIP 2023**!
 - *2023.04*: &nbsp; One paper is accepted by **IJCAI 2023**!
-- *2023.04*: &nbsp; One paper is accepted by **IJCNN 2023**!
+<!-- - *2023.04*: &nbsp; One paper is accepted by **IJCNN 2023**! -->
 <!-- - *2023.02*: &nbsp; One paper is accepted by **ICASSP 2023**! -->
 <!-- - *2022.11*: &nbsp; Two <u>first-author</u> papers are accepted by **AAAI 2023**! -->
 
@@ -59,6 +60,12 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 </div> -->
 
 ## Conferences:
+
+- <b>Unveiling Decision Intention for Cooperative Multi-Agent Reinforcement Learning</b>
+<br>
+<i>International Conference on Autonomous Agents and Multi-Agent Systems(<b><font color="#FF0000">AAMAS</font></b>)</i>, in Detroit, Michigan, USA, 2025.
+<br>
+Zeren Zhang, <u><b>Zhiwei Xu</b></u>, Guangchong Zhou, Dapeng Li, Bin Zhang, and Guoliang Fan
 
 - <b>Efficient Communication in Multi-Agent Reinforcement Learning with Implicit Consensus Generation</b>
 <br>
