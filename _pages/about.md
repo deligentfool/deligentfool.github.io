@@ -25,7 +25,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
-- *2024.05*: &nbsp; One <u>first-author</u> paper is accepted by **ICML 2025**!
+- *2025.05*: &nbsp; One <u>first-author</u> paper is accepted by **ICML 2025**!
 - *2024.12*: &nbsp; One paper is accepted by **AAMAS 2025**!
 - *2024.12*: &nbsp; Two papers are accepted by **AAAI 2025**!
 - *2024.09*: &nbsp; One paper is accepted by **ICONIP 2024**!
