@@ -25,6 +25,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
+- *2025.06*: &nbsp;🏆 Awarded with the **China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)**!
 - *2025.05*: &nbsp; One <u>first-author</u> paper is accepted by **ICML 2025**!
 - *2024.12*: &nbsp; One paper is accepted by **AAMAS 2025**!
 - *2024.12*: &nbsp; Two papers are accepted by **AAAI 2025**!
@@ -32,9 +33,9 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2024.05*: &nbsp; One paper is accepted by **ICML 2024**!
 - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**!
 - *2023.12*: &nbsp; One paper is accepted by **ICASSP 2024**!
-- *2023.12*: &nbsp;🎉🎉 Awarded with the **National Scholarship for Doctoral Students**!
+- *2023.12*: &nbsp;🏆 Awarded with the **National Scholarship for Doctoral Students**!
 - *2023.09*: &nbsp; One <u>first-author</u> paper is accepted by **NeurIPS 2023**!
-- *2023.07*: &nbsp; Two papers are accepted by **ICONIP 2023**!
+<!-- - *2023.07*: &nbsp; Two papers are accepted by **ICONIP 2023**! -->
 <!-- - *2023.04*: &nbsp; One paper is accepted by **IJCAI 2023**! -->
 <!-- - *2023.04*: &nbsp; One paper is accepted by **IJCNN 2023**! -->
 <!-- - *2023.02*: &nbsp; One paper is accepted by **ICASSP 2023**! -->
@@ -278,7 +279,11 @@ Dapeng Li, Feiyang Pan, Jia He, <u><b>Zhiwei Xu</b></u>, Dandan Tu, and Guoliang
 - International Joint Conference on Artificial Intelligence (<b>IJCAI</b>)
 - International Conference on Autonomous Agents and Multiagent Systems (<b>AAMAS</b>)
 
+<b>Academic Committee Membership</b>:
+- Executive Committee Member, Multi-Agent Systems Technical Group, CCF-AI
+
 # 🎖 Honors and Awards
+- *2025*&nbsp;&nbsp;  China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)
 - *2023*&nbsp;&nbsp;  National Scholarship for doctoral students, Ministry of Education
 - *2022*&nbsp;&nbsp;  Merit Student, University of Chinese Academy of Sciences
 - *2019*&nbsp;&nbsp;  Outstanding Undergraduate, Sichuan University
