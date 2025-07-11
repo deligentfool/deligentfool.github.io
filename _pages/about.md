@@ -23,6 +23,8 @@ I am currently an assistant professor at the [School of Artificial Intelligence]
 
 I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn).
 
+每年招收硕士研究生，欢迎具有人工智能、强化学习或者大模型基础、以及对智能决策控制感兴趣的推免生或者大三学生, 与我[<b>邮件</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn)或者[<b>微信</b>](./images/weixin.jpg)联系。
+
 
 # 🔥 News
 - *2025.06*: &nbsp;🏆 Awarded with the **China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)**!
