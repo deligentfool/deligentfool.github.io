@@ -27,6 +27,8 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
+- *2025.09*: &nbsp; One paper is accepted by **NeurIPS 2025**!
+- *2025.08*: &nbsp; One paper is accepted by **EMNLP 2025**!
 - *2025.06*: &nbsp;🏆 Awarded with the **China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)**!
 - *2025.05*: &nbsp; One <u>first-author</u> paper is accepted by **ICML 2025**!
 - *2024.12*: &nbsp; One paper is accepted by **AAMAS 2025**!
@@ -35,8 +37,8 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2024.05*: &nbsp; One paper is accepted by **ICML 2024**!
 - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**!
 - *2023.12*: &nbsp; One paper is accepted by **ICASSP 2024**!
-- *2023.12*: &nbsp;🏆 Awarded with the **National Scholarship for Doctoral Students**!
-- *2023.09*: &nbsp; One <u>first-author</u> paper is accepted by **NeurIPS 2023**!
+<!-- - *2023.12*: &nbsp;🏆 Awarded with the **National Scholarship for Doctoral Students**! -->
+<!-- - *2023.09*: &nbsp; One <u>first-author</u> paper is accepted by **NeurIPS 2023**! -->
 <!-- - *2023.07*: &nbsp; Two papers are accepted by **ICONIP 2023**! -->
 <!-- - *2023.04*: &nbsp; One paper is accepted by **IJCAI 2023**! -->
 <!-- - *2023.04*: &nbsp; One paper is accepted by **IJCNN 2023**! -->
@@ -64,6 +66,18 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 </div> -->
 
 ## Conferences:
+
+- <b>Belief-Calibrated Multi-Agent Consensus Seeking for Complex NLP Tasks</b>
+<br>
+<i>Thirty-ninth Conference on Neural Information Processing Systems(<b><font color="#FF0000">NeurIPS</font></b>)</i>, in Mexico City, 2025.  (<b>Poster</b>)
+<br>
+Wentao Deng, Jiahuan Pei, <u><b>Zhiwei Xu</b></u>, Zhaochun Ren, Zhumin Chen, Pengjie Ren
+
+- <b>Bridging the Capability Gap: Joint Alignment Tuning for Harmonizing LLM-based Multi-Agent Systems</b>
+<br>
+<i>The 2025 Conference on Empirical Methods in Natural Language Processing(<b>EMNLP</b>)</i>, in Suzhou, China, 2025. (<b>Findings</b>)
+<br>
+Minghang Zhu, Zhengliang Shi, <u><b>Zhiwei Xu</b></u>, Shiguang Wu, Lingjie Wang, Pengjie Ren, Zhaochun Ren, Zhumin Chen
 
 - <b>Reidentify: Context-Aware Identity Generation for Contextual Multi-Agent Reinforcement Learning</b>
 <br>
