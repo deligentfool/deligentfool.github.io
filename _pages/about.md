@@ -21,12 +21,13 @@ Welcome to **Zhiwei Xu**’s Homepage!
 
 I am currently an assistant professor at the [School of Artificial Intelligence](https://ai.sdu.edu.cn/), [Shandong University](https://www.sdu.edu.cn/). I received my Ph.D. degree from the [Institute of Automation, Chinese Academy of Sciences](http://www.ia.cas.cn/), advised by [Prof. Guoliang Fan (范国梁)](https://people.ucas.ac.cn/~fanguoliang). My research interests include <b>Reinforcement Learning</b>, <b>Multi-agent System</b>, and <b>Large Language Model (LLM) Agents</b>.
 
-I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn).
+I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. And I am closely collaborating with [<b>Prof. Bin Zhang (张斌)</b>](https://binz98.github.io/) from the <b>Institute of Automation, Chinese Academy of Sciences</b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn).
 
 <b><font color="#FF0000">每年招收硕士研究生和科研助理</font></b>，欢迎具有人工智能、强化学习或者大模型基础，以及对<b>智能体与多智能体系统</b>、<b>智能决策</b>感兴趣的<b>推免生或者大三学生</b>, 与我[<b>邮件</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn)或者[<b>微信</b>](./images/weixin.jpg)联系。
 
 
 # 🔥 News
+- *2025.11*: &nbsp; One paper is accepted by **AAAI 2026**!
 - *2025.09*: &nbsp; One paper is accepted by **NeurIPS 2025**!
 - *2025.08*: &nbsp; One paper is accepted by **EMNLP 2025**!
 - *2025.06*: &nbsp;🏆 Awarded with the **China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)**!
@@ -36,7 +37,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2024.09*: &nbsp; One paper is accepted by **ICONIP 2024**!
 - *2024.05*: &nbsp; One paper is accepted by **ICML 2024**!
 - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**!
-- *2023.12*: &nbsp; One paper is accepted by **ICASSP 2024**!
+<!-- - *2023.12*: &nbsp; One paper is accepted by **ICASSP 2024**! -->
 <!-- - *2023.12*: &nbsp;🏆 Awarded with the **National Scholarship for Doctoral Students**! -->
 <!-- - *2023.09*: &nbsp; One <u>first-author</u> paper is accepted by **NeurIPS 2023**! -->
 <!-- - *2023.07*: &nbsp; Two papers are accepted by **ICONIP 2023**! -->
@@ -66,6 +67,12 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 </div> -->
 
 ## Conferences:
+
+- <b>Graph of Verification: Structured Verification of LLM Reasoning with Directed Acyclic Graphs</b>
+<br>
+<i>The 40th Annual AAAI Conference on Artificial Intelligence(<b><font color="#FF0000">AAAI</font></b>)</i>, in Singapore, 2026.  (<b>Poster</b>)
+<br>
+Jiwei Fang, Bin Zhang, Changwei Wang, Jin Wan, <u><b>Zhiwei Xu</b></u>
 
 - <b>Belief-Calibrated Multi-Agent Consensus Seeking for Complex NLP Tasks</b>
 <br>
