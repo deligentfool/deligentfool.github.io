@@ -80,6 +80,7 @@ Hao Chen, Pengyi Li, Bin Zhang, Hu Fu, <u><b>Zhiwei Xu</b></u>, Ce Zhang, Xinyue
 <i>The 40th Annual AAAI Conference on Artificial Intelligence(<b><font color="#FF0000">AAAI</font></b>)</i>, in Singapore, 2026.  (<b>Poster</b>)
 <br>
 Jiwei Fang, Bin Zhang, Changwei Wang, Jin Wan, and <u><b>Zhiwei Xu</b></u>
+<br>
 [<a href="https://arxiv.org/abs/2506.12509" target="_blank">Arxiv</a>][<a href="https://github.com/Frevor/Graph-of-Verification" target="_blank">Code</a>]
 
 - <b>Belief-Calibrated Multi-Agent Consensus Seeking for Complex NLP Tasks</b>
@@ -87,6 +88,7 @@ Jiwei Fang, Bin Zhang, Changwei Wang, Jin Wan, and <u><b>Zhiwei Xu</b></u>
 <i>Thirty-ninth Conference on Neural Information Processing Systems(<b><font color="#FF0000">NeurIPS</font></b>)</i>, in Mexico City, 2025.  (<b>Poster</b>)
 <br>
 Wentao Deng, Jiahuan Pei, <u><b>Zhiwei Xu</b></u>, Zhaochun Ren, Zhumin Chen, and Pengjie Ren
+<br>
 [<a href="https://arxiv.org/abs/2510.06307" target="_blank">Arxiv</a>][<a href="https://github.com/dengwentao99/BCCS" target="_blank">Code</a>]
 
 - <b>Bridging the Capability Gap: Joint Alignment Tuning for Harmonizing LLM-based Multi-Agent Systems</b>
@@ -94,6 +96,7 @@ Wentao Deng, Jiahuan Pei, <u><b>Zhiwei Xu</b></u>, Zhaochun Ren, Zhumin Chen, an
 <i>The 2025 Conference on Empirical Methods in Natural Language Processing(<b>EMNLP</b>)</i>, in Suzhou, China, 2025. (<b>Findings</b>)
 <br>
 Minghang Zhu, Zhengliang Shi, <u><b>Zhiwei Xu</b></u>, Shiguang Wu, Lingjie Wang, Pengjie Ren, Zhaochun Ren, and Zhumin Chen
+<br>
 [<a href="https://arxiv.org/abs/2509.09629" target="_blank">Arxiv</a>][<a href="https://github.com/ZMingHang/MOAT" target="_blank">Code</a>]
 
 - <b>Reidentify: Context-Aware Identity Generation for Contextual Multi-Agent Reinforcement Learning</b>
@@ -101,6 +104,7 @@ Minghang Zhu, Zhengliang Shi, <u><b>Zhiwei Xu</b></u>, Shiguang Wu, Lingjie Wang
 <i>Forty-second International Conference on Machine Learning(<b><font color="#FF0000">ICML</font></b>)</i>, in Vancouver, Canada, 2025.
 <br>
 <u><b>Zhiwei Xu</b></u>, Kun Hu, Xin Xin, Weiliang Meng, Yiwei Shi, Hangyu Mao, Bin Zhang, Dapeng Li, and Jiangjin Yin
+<br>
 [<a href="https://openreview.net/forum?id=vUDWRMB3tX" target="_blank">OpenReview</a>]
 
 - <b>Unveiling Decision Intention for Cooperative Multi-Agent Reinforcement Learning</b>
