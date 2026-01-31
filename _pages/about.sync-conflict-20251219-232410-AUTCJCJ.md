@@ -19,7 +19,7 @@ redirect_from:
 
 Welcome to **Zhiwei Xu**’s Homepage!
 
-I am currently an assistant professor at the [School of Artificial Intelligence](https://ai.sdu.edu.cn/), [Shandong University](https://www.sdu.edu.cn/), and a member of the [General Artificial Intelligence Laboratory (SDU GAIL)](https://gail.sdu.edu.cn/). I received my Ph.D. degree from the [Institute of Automation, Chinese Academy of Sciences](http://www.ia.cas.cn/), advised by [Prof. Guoliang Fan (范国梁)](https://people.ucas.ac.cn/~fanguoliang). My research interests include <b>Reinforcement Learning</b>, <b>Multi-agent System</b>, and <b>Large Language Model (LLM) Agents</b>.
+I am currently an assistant professor at the [School of Artificial Intelligence](https://ai.sdu.edu.cn/), [Shandong University](https://www.sdu.edu.cn/). I received my Ph.D. degree from the [Institute of Automation, Chinese Academy of Sciences](http://www.ia.cas.cn/), advised by [Prof. Guoliang Fan (范国梁)](https://people.ucas.ac.cn/~fanguoliang). My research interests include <b>Reinforcement Learning</b>, <b>Multi-agent System</b>, and <b>Large Language Model (LLM) Agents</b>.
 
 I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. And I am closely collaborating with [<b>Prof. Bin Zhang (张斌)</b>](https://binz98.github.io/) from the <b>Institute of Automation, Chinese Academy of Sciences</b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn).
 
@@ -27,18 +27,16 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
-- *2026.01*: &nbsp; One <u>first-author</u> paper accepted to **ICLR 2026**!
-- *2025.12*: &nbsp; One paper accepted to **AAMAS 2026**!
-- *2025.11*: &nbsp; One paper accepted to **AAAI 2026**! Congratulations to Jiwei! 🎉
-- *2025.09*: &nbsp; One paper accepted to **NeurIPS 2025**!
-- *2025.08*: &nbsp; One paper accepted to **EMNLP 2025**!
+- *2025.11*: &nbsp; One paper is accepted by **AAAI 2026**!
+- *2025.09*: &nbsp; One paper is accepted by **NeurIPS 2025**!
+- *2025.08*: &nbsp; One paper is accepted by **EMNLP 2025**!
 - *2025.06*: &nbsp;🏆 Awarded with the **China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)**!
-- *2025.05*: &nbsp; One <u>first-author</u> paper accepted to **ICML 2025**!
-- *2024.12*: &nbsp; One paper accepted to **AAMAS 2025**!
-- *2024.12*: &nbsp; Two papers accepted to **AAAI 2025**!
-- *2024.09*: &nbsp; One paper accepted to **ICONIP 2024**!
-<!-- - *2024.05*: &nbsp; One paper accepted to **ICML 2024**! -->
-<!-- - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**! -->
+- *2025.05*: &nbsp; One <u>first-author</u> paper is accepted by **ICML 2025**!
+- *2024.12*: &nbsp; One paper is accepted by **AAMAS 2025**!
+- *2024.12*: &nbsp; Two papers are accepted by **AAAI 2025**!
+- *2024.09*: &nbsp; One paper is accepted by **ICONIP 2024**!
+- *2024.05*: &nbsp; One paper is accepted by **ICML 2024**!
+- *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**!
 <!-- - *2023.12*: &nbsp; One paper is accepted by **ICASSP 2024**! -->
 <!-- - *2023.12*: &nbsp;🏆 Awarded with the **National Scholarship for Doctoral Students**! -->
 <!-- - *2023.09*: &nbsp; One <u>first-author</u> paper is accepted by **NeurIPS 2023**! -->
@@ -70,50 +68,29 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 ## Conferences:
 
-- <b>Peak-Return Greedy Slicing: Subtrajectory Selection for Transformer-based Offline RL</b>
-<br>
-<i>International Conference on Learning Representations (<b><font color="#FF0000">ICLR</font></b>)</i>, in Rio de Janeiro, Brazil, 2026.
-<br>
-<u><b>Zhiwei Xu</b></u>, Miduo Cui, Dapeng Li, Zhihao Liu, Haifeng Zhang, Hangyu Mao, Guoliang Fan, and Bin Zhang
-
-
-- <b>Quality-Diversity for Multi-Agent Reinforcement Learning</b>
-<br>
-<i>International Conference on Autonomous Agents and Multi-Agent Systems(<b><font color="#FF0000">AAMAS</font></b>)</i>, in Paphos, Cyprus, 2026.
-<br>
-Hao Chen, Pengyi Li, Bin Zhang, Hu Fu, <u><b>Zhiwei Xu</b></u>, Ce Zhang, Xinyue Lu, and Guoliang Fan
-
 - <b>Graph of Verification: Structured Verification of LLM Reasoning with Directed Acyclic Graphs</b>
 <br>
 <i>The 40th Annual AAAI Conference on Artificial Intelligence(<b><font color="#FF0000">AAAI</font></b>)</i>, in Singapore, 2026.  (<b>Poster</b>)
 <br>
-Jiwei Fang, Bin Zhang, Changwei Wang, Jin Wan, and <u><b>Zhiwei Xu</b></u>
-<br>
-[<a href="https://arxiv.org/abs/2506.12509" target="_blank">Arxiv</a>][<a href="https://github.com/Frevor/Graph-of-Verification" target="_blank">Code</a>]
+Jiwei Fang, Bin Zhang, Changwei Wang, Jin Wan, <u><b>Zhiwei Xu</b></u>
 
 - <b>Belief-Calibrated Multi-Agent Consensus Seeking for Complex NLP Tasks</b>
 <br>
 <i>Thirty-ninth Conference on Neural Information Processing Systems(<b><font color="#FF0000">NeurIPS</font></b>)</i>, in Mexico City, 2025.  (<b>Poster</b>)
 <br>
-Wentao Deng, Jiahuan Pei, <u><b>Zhiwei Xu</b></u>, Zhaochun Ren, Zhumin Chen, and Pengjie Ren
-<br>
-[<a href="https://arxiv.org/abs/2510.06307" target="_blank">Arxiv</a>][<a href="https://github.com/dengwentao99/BCCS" target="_blank">Code</a>]
+Wentao Deng, Jiahuan Pei, <u><b>Zhiwei Xu</b></u>, Zhaochun Ren, Zhumin Chen, Pengjie Ren
 
 - <b>Bridging the Capability Gap: Joint Alignment Tuning for Harmonizing LLM-based Multi-Agent Systems</b>
 <br>
 <i>The 2025 Conference on Empirical Methods in Natural Language Processing(<b>EMNLP</b>)</i>, in Suzhou, China, 2025. (<b>Findings</b>)
 <br>
-Minghang Zhu, Zhengliang Shi, <u><b>Zhiwei Xu</b></u>, Shiguang Wu, Lingjie Wang, Pengjie Ren, Zhaochun Ren, and Zhumin Chen
-<br>
-[<a href="https://arxiv.org/abs/2509.09629" target="_blank">Arxiv</a>][<a href="https://github.com/ZMingHang/MOAT" target="_blank">Code</a>]
+Minghang Zhu, Zhengliang Shi, <u><b>Zhiwei Xu</b></u>, Shiguang Wu, Lingjie Wang, Pengjie Ren, Zhaochun Ren, Zhumin Chen
 
 - <b>Reidentify: Context-Aware Identity Generation for Contextual Multi-Agent Reinforcement Learning</b>
 <br>
 <i>Forty-second International Conference on Machine Learning(<b><font color="#FF0000">ICML</font></b>)</i>, in Vancouver, Canada, 2025.
 <br>
 <u><b>Zhiwei Xu</b></u>, Kun Hu, Xin Xin, Weiliang Meng, Yiwei Shi, Hangyu Mao, Bin Zhang, Dapeng Li, and Jiangjin Yin
-<br>
-[<a href="https://openreview.net/forum?id=vUDWRMB3tX" target="_blank">OpenReview</a>]
 
 - <b>Unveiling Decision Intention for Cooperative Multi-Agent Reinforcement Learning</b>
 <br>
@@ -283,17 +260,6 @@ Yuan Zhan, <u><b>Zhiwei Xu</b></u>, and Guoliang Fan
 <u><b>Zhiwei Xu</b></u>, Dapeng Li, Yunpeng Bai, and Guoliang Fan
 <br>
 [<a href="https://arxiv.org/abs/2106.11652" target="_blank">Arxiv</a>]
-
-
-## Journals:
-
-- <b>An Evolutionary Reinforcement Learning Framework for Joint Work Package Sizing and Scheduling with Uncertainties</b>
-<br>
-<i>European Journal of Operational Research</i>, in press, 2026.
-<br>
-Nianmin Zhang, Xiao Li, and <u><b>Zhiwei Xu</b></u>
-
-
 
 ## Pre-prints:
 
