@@ -82,6 +82,7 @@ Yuanjun Li, Bin Zhang, Hao Chen, Zhouyang Jiang, Dapeng Li, and <u><b>Zhiwei Xu<
 <i>International Conference on Learning Representations (<b><font color="#FF0000">ICLR</font></b>)</i>, in Rio de Janeiro, Brazil, 2026.
 <br>
 <u><b>Zhiwei Xu</b></u>, Miduo Cui, Dapeng Li, Zhihao Liu, Haifeng Zhang, Hangyu Mao, Guoliang Fan, and Bin Zhang
+<br>
 [<a href="https://openreview.net/forum?id=7vpehpWnnY" target="_blank">OpenReview</a>][<a href="https://github.com/deligentfool/PRGS" target="_blank">Code</a>]
 
 - <b>Quality-Diversity for Multi-Agent Reinforcement Learning</b>
