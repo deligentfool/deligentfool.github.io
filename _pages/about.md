@@ -27,6 +27,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
+- *2026.02*: &nbsp; One paper accepted to **ICAPS 2026**! Congratulations to Yuanjun! 🎉
 - *2026.01*: &nbsp; One <u>first-author</u> paper accepted to **ICLR 2026**!
 - *2025.12*: &nbsp; One paper accepted to **AAMAS 2026**!
 - *2025.11*: &nbsp; One paper accepted to **AAAI 2026**! Congratulations to Jiwei! 🎉
@@ -36,7 +37,7 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2025.05*: &nbsp; One <u>first-author</u> paper accepted to **ICML 2025**!
 - *2024.12*: &nbsp; One paper accepted to **AAMAS 2025**!
 - *2024.12*: &nbsp; Two papers accepted to **AAAI 2025**!
-- *2024.09*: &nbsp; One paper accepted to **ICONIP 2024**!
+<!-- - *2024.09*: &nbsp; One paper accepted to **ICONIP 2024**! -->
 <!-- - *2024.05*: &nbsp; One paper accepted to **ICML 2024**! -->
 <!-- - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**! -->
 <!-- - *2023.12*: &nbsp; One paper is accepted by **ICASSP 2024**! -->
@@ -70,12 +71,18 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 ## Conferences:
 
+- <b>QSIM: Mitigating Overestimation in Multi-Agent Reinforcement Learning via Action Similarity Weighted Q-Learning</b>
+<br>
+<i>International Conference on Automated Planning and Scheduling (<b>ICAPS</b>)</i>, in Dublin, Ireland, 2026.
+<br>
+Yuanjun Li, Bin Zhang, Hao Chen, Zhouyang Jiang, Dapeng Li, and <u><b>Zhiwei Xu</b></u>
+
 - <b>Peak-Return Greedy Slicing: Subtrajectory Selection for Transformer-based Offline RL</b>
 <br>
 <i>International Conference on Learning Representations (<b><font color="#FF0000">ICLR</font></b>)</i>, in Rio de Janeiro, Brazil, 2026.
 <br>
 <u><b>Zhiwei Xu</b></u>, Miduo Cui, Dapeng Li, Zhihao Liu, Haifeng Zhang, Hangyu Mao, Guoliang Fan, and Bin Zhang
-
+[<a href="https://openreview.net/forum?id=7vpehpWnnY" target="_blank">OpenReview</a>][<a href="https://github.com/deligentfool/PRGS" target="_blank">Code</a>]
 
 - <b>Quality-Diversity for Multi-Agent Reinforcement Learning</b>
 <br>
