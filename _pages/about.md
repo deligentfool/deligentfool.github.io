@@ -76,6 +76,8 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 <i>International Conference on Automated Planning and Scheduling (<b>ICAPS</b>)</i>, in Dublin, Ireland, 2026.
 <br>
 Yuanjun Li, Bin Zhang, Hao Chen, Zhouyang Jiang, Dapeng Li, and <u><b>Zhiwei Xu</b></u>
+<br>
+[<a href="https://arxiv.org/abs/2602.22786" target="_blank">Arxiv</a>][<a href="https://github.com/MaoMaoLYJ/pymarl-qsim" target="_blank">Code</a>]
 
 - <b>Peak-Return Greedy Slicing: Subtrajectory Selection for Transformer-based Offline RL</b>
 <br>
