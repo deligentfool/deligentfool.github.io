@@ -25,6 +25,8 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 <b><font color="#FF0000">每年招收硕士研究生和科研助理</font></b>，欢迎具有人工智能、强化学习或者大模型基础，以及对<b>智能体与多智能体系统</b>、<b>智能决策</b>感兴趣的<b>推免生或者大三学生</b>, 与我[<b>邮件</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn)或者[<b>微信</b>](./images/weixin.jpg)联系。
 
+<b><font color="#FF0000">请勿轻信</font>其他邮箱发送的信息或其他微信的好友申请信息，相关沟通与合作事宜均以上述邮箱和微信联系方式为准。</b>
+
 
 # 🔥 News
 - *2026.02*: &nbsp; One paper accepted to **ICAPS 2026**! Congratulations to Yuanjun! 🎉
