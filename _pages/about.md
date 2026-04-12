@@ -23,7 +23,7 @@ I am currently an assistant professor at the [School of Artificial Intelligence]
 
 I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. And I am closely collaborating with [<b>Prof. Bin Zhang (张斌)</b>](https://binz98.github.io/) from the <b>Institute of Automation, Chinese Academy of Sciences</b>. If you are interested with my experience or research, please feel free to contact me via [<b>Wechat</b>](./images/weixin.jpg) or [<b>Email</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn).
 
-<b><font color="#FF0000">每年招收硕士研究生和科研助理</font></b>，欢迎具有人工智能、强化学习或者大模型基础，以及对<b>智能体与多智能体系统</b>、<b>智能决策</b>感兴趣的<b>推免生或者大三学生</b>, 与我[<b>邮件</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn)或者[<b>微信</b>](./images/weixin.jpg)联系。
+<b><font color="#FF0000">每年招收硕士研究生和科研助理</font></b>，欢迎具有人工智能、强化学习或者大模型基础，以及对<b>智能体与多智能体系统</b>、<b>强化学习及智能决策</b>感兴趣的<b>推免生或者大三学生</b>, 与我[<b>邮件</b>](mailto:zhiwei_xu@sdu.edu.cn)(zhiwei_xu@sdu.edu.cn)或者[<b>微信</b>](./images/weixin.jpg)联系。
 
 <b><font color="#FF0000">请勿轻信</font>其他邮箱发送的信息或其他微信的好友申请信息，相关沟通与合作事宜均以上述邮箱和微信联系方式为准。</b>
 
