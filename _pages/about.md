@@ -29,6 +29,8 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
+- *2026.05*: &nbsp; One paper accepted to **ICML 2026**! Congratulations to Miduo! 🎉
+- *2026.05*: &nbsp; One paper accepted to **IJCAI 2026**! Congratulations to Yewei! 🎉
 - *2026.02*: &nbsp; One paper accepted to **ICAPS 2026**! Congratulations to Yuanjun! 🎉
 - *2026.01*: &nbsp; One <u>first-author</u> paper accepted to **ICLR 2026**!
 - *2025.12*: &nbsp; One paper accepted to **AAMAS 2026**!
@@ -37,8 +39,8 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 - *2025.08*: &nbsp; One paper accepted to **EMNLP 2025**!
 - *2025.06*: &nbsp;🏆 Awarded with the **China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)**!
 - *2025.05*: &nbsp; One <u>first-author</u> paper accepted to **ICML 2025**!
-- *2024.12*: &nbsp; One paper accepted to **AAMAS 2025**!
-- *2024.12*: &nbsp; Two papers accepted to **AAAI 2025**!
+<!-- - *2024.12*: &nbsp; One paper accepted to **AAMAS 2025**! -->
+<!-- - *2024.12*: &nbsp; Two papers accepted to **AAAI 2025**! -->
 <!-- - *2024.09*: &nbsp; One paper accepted to **ICONIP 2024**! -->
 <!-- - *2024.05*: &nbsp; One paper accepted to **ICML 2024**! -->
 <!-- - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**! -->
@@ -72,6 +74,18 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 </div> -->
 
 ## Conferences:
+
+- <b>DRIVE: Distributional and Retrieval-Augmented Bidding with Value Evaluation</b>
+<br>
+<i>Forty-third International Conference on Machine Learning(<b><font color="#FF0000">ICML</font></b>)</i>, in Seoul, South Korea, 2026.
+<br>
+Miduo Cui, Haochen Wang, Shangqin Mao, Xun Yang, Qianlong Xie, Xingxing Wang, Xuri Ge, Ying Zhou, and <u><b>Zhiwei Xu</b></u>
+
+- <b>From Traits to Roles: Consensus-Guided Composition of Orthogonal Experts for Cooperative MARL</b>
+<br>
+<i>35th International Joint Conference on Artificial Intelligence(<b><font color="#FF0000">IJCAI</font></b>)</i>, in Bremen, Germany, 2026.
+<br>
+Yewei Zhou, Bin Zhang, Ying Zhou, Xuri Ge, Dapeng Li, Hangyu Mao, Pengjie Ren, and <u><b>Zhiwei Xu</b></u>
 
 - <b>QSIM: Mitigating Overestimation in Multi-Agent Reinforcement Learning via Action Similarity Weighted Q-Learning</b>
 <br>
