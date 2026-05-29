@@ -29,29 +29,84 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 
 # 🔥 News
-- *2026.05*: &nbsp; One paper accepted to **ICML 2026**! Congratulations to Miduo! 🎉
-- *2026.05*: &nbsp; One paper accepted to **IJCAI 2026**! Congratulations to Yewei! 🎉
-- *2026.02*: &nbsp; One paper accepted to **ICAPS 2026**! Congratulations to Yuanjun! 🎉
-- *2026.01*: &nbsp; One <u>first-author</u> paper accepted to **ICLR 2026**!
-- *2025.12*: &nbsp; One paper accepted to **AAMAS 2026**!
-- *2025.11*: &nbsp; One paper accepted to **AAAI 2026**! Congratulations to Jiwei! 🎉
-- *2025.09*: &nbsp; One paper accepted to **NeurIPS 2025**!
-- *2025.08*: &nbsp; One paper accepted to **EMNLP 2025**!
-- *2025.06*: &nbsp;🏆 Awarded with the **China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)**!
-- *2025.05*: &nbsp; One <u>first-author</u> paper accepted to **ICML 2025**!
-<!-- - *2024.12*: &nbsp; One paper accepted to **AAMAS 2025**! -->
-<!-- - *2024.12*: &nbsp; Two papers accepted to **AAAI 2025**! -->
-<!-- - *2024.09*: &nbsp; One paper accepted to **ICONIP 2024**! -->
-<!-- - *2024.05*: &nbsp; One paper accepted to **ICML 2024**! -->
-<!-- - *2023.12*: &nbsp; Two papers are accepted by **AAMAS 2024**! -->
-<!-- - *2023.12*: &nbsp; One paper is accepted by **ICASSP 2024**! -->
-<!-- - *2023.12*: &nbsp;🏆 Awarded with the **National Scholarship for Doctoral Students**! -->
-<!-- - *2023.09*: &nbsp; One <u>first-author</u> paper is accepted by **NeurIPS 2023**! -->
-<!-- - *2023.07*: &nbsp; Two papers are accepted by **ICONIP 2023**! -->
-<!-- - *2023.04*: &nbsp; One paper is accepted by **IJCAI 2023**! -->
-<!-- - *2023.04*: &nbsp; One paper is accepted by **IJCNN 2023**! -->
-<!-- - *2023.02*: &nbsp; One paper is accepted by **ICASSP 2023**! -->
-<!-- - *2022.11*: &nbsp; Two <u>first-author</u> papers are accepted by **AAAI 2023**! -->
+
+<style>
+  .news-list {
+    margin-bottom: 0.6em;
+  }
+
+  .news-list li {
+    margin-bottom: 0.28em;
+  }
+
+  .news-pin {
+    display: inline-block;
+    margin-left: 0.35em;
+    padding: 0.05em 0.45em;
+    border: 1px solid #d0d7de;
+    border-radius: 4px;
+    color: #57606a;
+    font-size: 0.72em;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+
+  .news-archive summary {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0.15em 0 0.45em;
+    color: #0366d6;
+    font-weight: 600;
+  }
+
+  .news-archive .news-less {
+    display: none;
+  }
+
+  details[open].news-archive .news-more {
+    display: none;
+  }
+
+  details[open].news-archive .news-less {
+    display: inline;
+  }
+</style>
+
+<ul class="news-list">
+  <li><em>2026.05</em>: &nbsp;🏆 Selected for the <strong>CCF-DiDi GAIA Scholar Program</strong>! <span class="news-pin">Pinned</span></li>
+  <li><em>2025.06</em>: &nbsp;🏆 Awarded with the <strong>China Excellent Doctoral Dissertation Award in Agents and Multi-Agent Systems (Runner-up)</strong>! <span class="news-pin">Pinned</span></li>
+  <li><em>2026.05</em>: &nbsp; Two papers accepted to <strong>IEEE CASE 2026</strong>!</li>
+  <li><em>2026.05</em>: &nbsp; One <u>first-author</u> paper accepted to <strong>RLC 2026</strong>!</li>
+  <li><em>2026.05</em>: &nbsp; One paper accepted to <strong>ICML 2026</strong>! Congratulations to Miduo! 🎉</li>
+  <li><em>2026.05</em>: &nbsp; One paper accepted to <strong>IJCAI 2026</strong>! Congratulations to Yewei! 🎉</li>
+  <!-- <li><em>2026.04</em>: &nbsp; Miduo Cui was selected for the <strong>Tencent Rhino-Bird Elite Talent Program</strong>! Congratulations to Miduo! 🎉</li> -->
+  <li><em>2026.02</em>: &nbsp; One paper accepted to <strong>ICAPS 2026</strong>! Congratulations to Yuanjun! 🎉</li>
+  <li><em>2026.01</em>: &nbsp; One <u>first-author</u> paper accepted to <strong>ICLR 2026</strong>!</li>
+  <li><em>2025.12</em>: &nbsp; One paper accepted to <strong>AAMAS 2026</strong>!</li>
+  <li><em>2025.11</em>: &nbsp; One paper accepted to <strong>AAAI 2026</strong>! Congratulations to Jiwei! 🎉</li>
+  <li><em>2025.09</em>: &nbsp; One paper accepted to <strong>NeurIPS 2025</strong>!</li>
+</ul>
+
+<details class="news-archive">
+  <summary><span class="news-more">Show more news</span><span class="news-less">Show less news</span></summary>
+  <ul class="news-list">
+    <li><em>2025.08</em>: &nbsp; One paper accepted to <strong>EMNLP 2025</strong>!</li>
+    <li><em>2025.05</em>: &nbsp; One <u>first-author</u> paper accepted to <strong>ICML 2025</strong>!</li>
+    <li><em>2024.12</em>: &nbsp; One paper accepted to <strong>AAMAS 2025</strong>!</li>
+    <li><em>2024.12</em>: &nbsp; Two papers accepted to <strong>AAAI 2025</strong>!</li>
+    <li><em>2024.09</em>: &nbsp; One paper accepted to <strong>ICONIP 2024</strong>!</li>
+    <li><em>2024.05</em>: &nbsp; One paper accepted to <strong>ICML 2024</strong>!</li>
+    <li><em>2023.12</em>: &nbsp; Two papers accepted to <strong>AAMAS 2024</strong>!</li>
+    <li><em>2023.12</em>: &nbsp; One paper accepted to <strong>ICASSP 2024</strong>!</li>
+    <li><em>2023.12</em>: &nbsp;🏆 Awarded with the <strong>National Scholarship for Doctoral Students</strong>!</li>
+    <li><em>2023.09</em>: &nbsp; One <u>first-author</u> paper accepted to <strong>NeurIPS 2023</strong>!</li>
+    <li><em>2023.07</em>: &nbsp; Two papers accepted to <strong>ICONIP 2023</strong>!</li>
+    <li><em>2023.04</em>: &nbsp; One paper accepted to <strong>IJCAI 2023</strong>!</li>
+    <li><em>2023.04</em>: &nbsp; One paper accepted to <strong>IJCNN 2023</strong>!</li>
+    <li><em>2023.02</em>: &nbsp; One paper accepted to <strong>ICASSP 2023</strong>!</li>
+    <li><em>2022.11</em>: &nbsp; Two <u>first-author</u> papers accepted to <strong>AAAI 2023</strong>!</li>
+  </ul>
+</details>
 
 
 # 📖 Experience
@@ -75,6 +130,29 @@ I am looking for <b><font color="#FF0000">cooperation opportunities</font></b>. 
 
 ## Conferences:
 
+- <b>SQLBench: A Comprehensive Evaluation for Text-to-SQL Capabilities of Large Language Models</b>
+<br>
+<i>2026 IEEE 22nd International Conference on Automation Science and Engineering(<b>CASE</b>)</i>, in Shenyang, China, 2026.
+<br>
+Bin Zhang, Yuxiao Ye, Guoqing Du, Xiaoru Hu, Zhishuai Li, Chi Harold Liu, Rui Zhao, <u><b>Zhiwei Xu</b></u>, Guoliang Fan, Ziyue Li, and Hangyu Mao
+[<a href="https://arxiv.org/abs/2403.02951" target="_blank">Arxiv</a>]
+
+- <b>Controlling Large Language Model-based Agents for Large-Scale Decision-Making: An Actor-Critic Approach</b>
+<br>
+<i>2026 IEEE 22nd International Conference on Automation Science and Engineering(<b>CASE</b>)</i>, in Shenyang, China, 2026.
+<br>
+Bin Zhang, Hangyu Mao, Jingqing Ruan, Ying Wen, Yang Li, Shao Zhang, <u><b>Zhiwei Xu</b></u>, Dapeng Li, Ziyue Li, Rui Zhao, Lijuan Li, and Guoliang Fan
+<br>
+[<a href="https://arxiv.org/abs/2311.13884" target="_blank">Arxiv</a>]
+
+- <b>Beyond Local Views: Global State Inference with Diffusion Models for Cooperative Multi-Agent Reinforcement Learning</b>
+<br>
+<i>Reinforcement Learning Conference(<b>RLC</b>)</i>, in Montréal, QC, Canada, 2026.
+<br>
+<u><b>Zhiwei Xu</b></u>, Hangyu Mao, Nianmin Zhang, Shengtao Zhang, Xin Xin, Pengjie Ren, Dapeng Li, Bin Zhang, Guoliang Fan, Zhumin Chen, Changwei Wang, and Jiangjin Yin
+<br>
+[<a href="https://arxiv.org/abs/2408.09501" target="_blank">Arxiv</a>]
+
 - <b>DRIVE: Distributional and Retrieval-Augmented Bidding with Value Evaluation</b>
 <br>
 <i>Forty-third International Conference on Machine Learning(<b><font color="#FF0000">ICML</font></b>)</i>, in Seoul, South Korea, 2026.
@@ -89,7 +167,7 @@ Yewei Zhou, Bin Zhang, Ying Zhou, Xuri Ge, Dapeng Li, Hangyu Mao, Pengjie Ren, a
 
 - <b>QSIM: Mitigating Overestimation in Multi-Agent Reinforcement Learning via Action Similarity Weighted Q-Learning</b>
 <br>
-<i>International Conference on Automated Planning and Scheduling (<b>ICAPS</b>)</i>, in Dublin, Ireland, 2026.
+<i>International Conference on Automated Planning and Scheduling(<b>ICAPS</b>)</i>, in Dublin, Ireland, 2026.
 <br>
 Yuanjun Li, Bin Zhang, Hao Chen, Zhouyang Jiang, Dapeng Li, and <u><b>Zhiwei Xu</b></u>
 <br>
@@ -97,7 +175,7 @@ Yuanjun Li, Bin Zhang, Hao Chen, Zhouyang Jiang, Dapeng Li, and <u><b>Zhiwei Xu<
 
 - <b>Peak-Return Greedy Slicing: Subtrajectory Selection for Transformer-based Offline RL</b>
 <br>
-<i>International Conference on Learning Representations (<b><font color="#FF0000">ICLR</font></b>)</i>, in Rio de Janeiro, Brazil, 2026.
+<i>International Conference on Learning Representations(<b><font color="#FF0000">ICLR</font></b>)</i>, in Rio de Janeiro, Brazil, 2026.
 <br>
 <u><b>Zhiwei Xu</b></u>, Miduo Cui, Dapeng Li, Zhihao Liu, Haifeng Zhang, Hangyu Mao, Guoliang Fan, and Bin Zhang
 <br>
@@ -323,23 +401,11 @@ Nianmin Zhang, Xiao Li, and <u><b>Zhiwei Xu</b></u>
 
 ## Pre-prints:
 
-- <b>Beyond Local Views: Global State Inference with Diffusion Models for Cooperative Multi-Agent Reinforcement Learning</b>
-<br>
-<u><b>Zhiwei Xu</b></u>, Hangyu Mao, Nianmin Zhang, Xin Xin, Pengjie Ren, Dapeng Li, Bin Zhang, Guoliang Fan, Zhumin Chen, Changwei Wang, and Jiangjin Yin
-<br>
-[<a href="https://arxiv.org/abs/2408.09501" target="_blank">Arxiv</a>]
-
 - <b>Verco: Learning Coordinated Verbal Communication for Multi-agent Reinforcement Learning</b>
 <br>
 Dapeng Li, Hang Dong, Lu Wang, Bo Qiao, Si Qin, Qingwei Lin, Dongmei Zhang, Qi Zhang, <u><b>Zhiwei Xu</b></u>, Bin Zhang, and Guoliang Fan
 <br>
 [<a href="https://arxiv.org/abs/2404.17780" target="_blank">Arxiv</a>]
-
-- <b>Controlling Large Language Model-based Agents for Large-Scale Decision-Making: An Actor-Critic Approach</b>
-<br>
-Bin Zhang, Hangyu Mao, Jingqing Ruan, Ying Wen, Yang Li, Shao Zhang, <u><b>Zhiwei Xu</b></u>, Dapeng Li, Ziyue Li, Rui Zhao, Lijuan Li, and Guoliang Fan
-<br>
-[<a href="https://arxiv.org/abs/2311.13884" target="_blank">Arxiv</a>]
 
 - <b>TPTU: Task Planning and Tool Usage of Large Language Model-based AI Agents</b>
 <br>

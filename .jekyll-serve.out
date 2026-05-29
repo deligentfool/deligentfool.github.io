@@ -1,0 +1,7 @@
+Configuration file: E:/GitHub/deligentfool.github.io/_config.yml
+            Source: E:/GitHub/deligentfool.github.io
+       Destination: E:/GitHub/deligentfool.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+jekyll 3.10.0 | Error:  Permission denied @ rb_sysopen - E:/GitHub/deligentfool.github.io/_site/index.html
