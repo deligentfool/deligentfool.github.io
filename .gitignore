@@ -1,3 +1,10 @@
 _site/
 push.sh
 .DS_Store
+.bundle_user*/
+.gem/
+.gem_spec_cache/
+.gem_bootstrap/
+.gem_spec_cache_global/
+.home/
+rubyinstaller-*.exe
